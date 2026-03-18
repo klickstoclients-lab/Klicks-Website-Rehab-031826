@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>About Us | Klicks To Clients</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#C9F84A",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#08131F",
+                        "accent-cyan": "#2ED8C3",
+                        "accent-blue": "#3B82F6",
+                        "surface-dark": "#0B1A2A",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'scroll-slow': 'scroll-slow 20s linear infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0 },
+                        },
+                        'scroll-slow': {
+                            '0%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) infinite;
+        }
+
+        .faq-accordion[open] .faq-icon {
+            transform: rotate(180deg);
+            color: #C9F84A;
+        }
+
+        .faq-accordion[open] {
+            border-color: rgba(46, 216, 195, 0.18);
+            box-shadow: 0 0 20px rgba(46, 216, 195, 0.08);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .glass-card {
+            background: rgba(15, 35, 52, 0.58);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(99, 181, 255, 0.14);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+        }
+
+        /* Scroll Animations */
+        .obs-animate {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), gap 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .obs-animate.obs-visible {
+            opacity: 1;
+        }
+
+        /* 5-Item Squeeze Animation (starts wide/scaled, transitions to normal) */
+        .obs-squeeze {
+            gap: 2rem; 
+            transform: scale(1.05); 
+        }
+        @media (min-width: 768px) {
+            .obs-squeeze {
+                gap: 5rem;
+            }
+        }
+        .obs-squeeze.obs-visible {
+            gap: 2rem !important;
+            transform: scale(1) !important;
+        }
+        @media (min-width: 768px) {
+            .obs-squeeze.obs-visible {
+                gap: 4rem !important;
+            }
+        }
+
+        /* Fade-Up Animation */
+        .obs-fade-up {
+            transform: translateY(30px);
+        }
+        .obs-fade-up.obs-visible {
+            transform: translateY(0);
+        }
+
+        /* How It Works Animations */
+        .obs-draw-line {
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .obs-visible.obs-draw-line {
+            width: 100%;
+        }
+        
+        .obs-draw-line-y {
+            height: 0%;
+            transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .obs-visible.obs-draw-line-y {
+            height: 100%;
+        }
+
+        .obs-visible .obs-node {
+            border-color: rgba(201, 248, 74, 0.6);
+            box-shadow: inset 0 0 15px rgba(201, 248, 74, 0.05), 0 0 20px rgba(201, 248, 74, 0.15);
+        }
+        .obs-visible .obs-node span {
+            color: #C9F84A;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-body min-h-screen flex flex-col antialiased">
+    <header class="sticky top-0 z-50 bg-[#08131F]/70 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain group-hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                    <span class="font-display font-bold text-xl tracking-tight text-white group-hover:text-slate-200 transition-colors">Klicks To Clients</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="index.html#top">Home</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="contact.html">Contact</a>
+                <a class="text-sm font-medium text-white transition-colors border-b border-[#2ED8C3] pb-1" href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="index.html#faq">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <a href="tel:+18134448804" class="hidden lg:flex items-center gap-2 text-slate-300 text-sm font-medium hover:text-[#2ED8C3] transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3] text-lg">call</span>
+                    <span>813-444-8804</span>
+                </a>
+                <a href="contact.html"
+                    class="bg-[#C9F84A] text-[#08131F] px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-colors shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block text-center">
+                    Book Strategy Call
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Section 1: Header -->
+        <section class="pt-32 pb-24 relative overflow-hidden bg-[#06182C] obs-animate obs-fade-up">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,181,255,0.05)_0%,transparent_60%)]"></div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+                <h1 class="font-display text-5xl md:text-6xl font-black text-[#F5F8FC] leading-tight tracking-tight mb-8">
+                    About Klicks To Clients
+                </h1>
+                <p class="text-xl md:text-2xl text-[#9FB1C3] font-medium leading-relaxed font-body mb-8 max-w-3xl mx-auto">
+                    Klicks To Clients helps local businesses generate more leads, referrals, and repeat customers by building systems that connect visibility, trust, and conversion.
+                </p>
+                <div class="text-[13px] md:text-sm text-[#F5F8FC] font-bold tracking-widest uppercase bg-white/5 border border-white/10 px-8 py-4 rounded-full inline-block backdrop-blur-sm shadow-xl">
+                    We focus on what actually drives growth &mdash; not just traffic, but the systems that turn it into real business.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Team -->
+        <section class="py-32 bg-background-light dark:bg-background-dark relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20 obs-animate obs-fade-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+                        Meet the Team
+                    </h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-[2rem] p-10 flex flex-col items-center text-center transition-all duration-300 hover:border-[#C9F84A]/50 hover:shadow-[0_0_25px_rgba(201,248,74,0.12)] hover:-translate-y-2 group shadow-xl obs-animate obs-fade-up" style="transition-delay: 0.1s;">
+                        <div class="w-48 h-56 rounded-2xl overflow-hidden bg-[#08131F] border border-white/10 mb-8 flex items-center justify-center relative inner-shadow transition-all duration-300 group-hover:border-[#C9F84A] group-hover:shadow-[0_0_20px_rgba(201,248,74,0.25)]">
+                            <img src="JeffJordanHeadShot.png" alt="Jeff Jordan Headshot" class="w-full h-full object-cover object-top" style="object-position: center 5%;">
+                            <div class="absolute inset-0 rounded-2xl shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none"></div>
+                        </div>
+                        <h3 class="font-display font-bold text-3xl text-[#F5F8FC] mb-2 tracking-tight">Jeff Jordan</h3>
+                        <div class="text-[#2ED8C3] font-bold text-sm tracking-widest uppercase mb-6">Founder / Growth Strategist</div>
+                        <p class="text-[#9FB1C3] text-lg leading-relaxed">
+                            Oversees strategy, performance, and client growth systems.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-[2rem] p-10 flex flex-col items-center text-center transition-all duration-300 hover:border-[#C9F84A]/50 hover:shadow-[0_0_25px_rgba(201,248,74,0.12)] hover:-translate-y-2 group shadow-xl obs-animate obs-fade-up" style="transition-delay: 0.2s;">
+                        <div class="w-48 h-56 rounded-2xl overflow-hidden bg-[#08131F] border border-white/20 mb-8 flex items-center justify-center relative transition-all duration-300 group-hover:border-[#C9F84A] group-hover:shadow-[0_0_20px_rgba(201,248,74,0.25)]">
+                            <img src="rahul_sharma.png" alt="Rahul Sharma Headshot" class="w-full h-full object-cover" style="object-position: center 10%; transform: scale(1.15); transform-origin: center top;">
+                        </div>
+                        <h3 class="font-display font-bold text-3xl text-[#F5F8FC] mb-2 tracking-tight">Rahul Sharma</h3>
+                        <div class="text-[#2ED8C3] font-bold text-sm tracking-widest uppercase mb-6">Lead Generation Specialist</div>
+                        <p class="text-[#9FB1C3] text-lg leading-relaxed">
+                            Builds and optimizes campaigns that drive inbound leads.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-[2rem] p-10 flex flex-col items-center text-center transition-all duration-300 hover:border-[#C9F84A]/50 hover:shadow-[0_0_25px_rgba(201,248,74,0.12)] hover:-translate-y-2 group shadow-xl obs-animate obs-fade-up" style="transition-delay: 0.3s;">
+                        <div class="w-48 h-56 rounded-2xl overflow-hidden bg-[#08131F] border border-white/20 mb-8 flex items-center justify-center relative transition-all duration-300 group-hover:border-[#C9F84A] group-hover:shadow-[0_0_20px_rgba(201,248,74,0.25)]">
+                            <img src="jonathan_holmes.png" alt="Jonathan Holmes Headshot" class="w-full h-full object-cover" style="object-position: center 10%; transform: scale(1.15); transform-origin: center top;">
+                        </div>
+                        <h3 class="font-display font-bold text-3xl text-[#F5F8FC] mb-2 tracking-tight">Jonathan Holmes</h3>
+                        <div class="text-[#2ED8C3] font-bold text-sm tracking-widest uppercase mb-6">Web & Conversion Specialist</div>
+                        <p class="text-[#9FB1C3] text-lg leading-relaxed">
+                            Designs and improves websites to increase conversion rates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Call To Action -->
+        <section class="py-32 relative overflow-hidden bg-[#06182C] obs-animate obs-fade-up border-t border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,248,74,0.05)_0%,transparent_50%)]"></div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center gap-8">
+                <h2 class="font-display text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
+                    Ready to Turn Klicks Into Clients?
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl font-medium">
+                    Let’s build a system that generates more leads, referrals, and repeat business.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 mt-6 w-full justify-center">
+                    <a href="contact.html" class="bg-[#C9F84A] text-[#08131F] px-10 py-5 rounded-xl font-display font-black text-xl hover:bg-[#b5df42] transition-colors shadow-[0_0_30px_rgba(201,248,74,0.3)] w-full sm:w-auto flex items-center justify-center">
+                        Book Strategy Call
+                    </a>
+                </div>
+                <a href="tel:+18134448804" class="mt-4 flex items-center gap-3 text-slate-300 hover:text-[#2ED8C3] transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3]">phone_in_talk</span>
+                    <span class="font-display font-bold text-xl">Or call us at (813) 444-8804</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#08131F] border-t border-white/5 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                        <span class="font-display font-bold text-2xl tracking-tight text-white">Klicks To Clients</span>
+                    </div>
+                    <p class="text-slate-400 mb-8 max-w-md leading-relaxed">
+                        The premium local growth agency for Tampa Bay businesses. We build connected systems that turn
+                        visibility into real, measurable revenue.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-colors border border-white/10 hover:border-white/30"
+                            href="#">
+                            <span class="material-symbols-outlined">share</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide">Quick Links</h3>
+                    <ul class="flex flex-col gap-4 text-slate-400 font-medium">
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="index.html#top">Home</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="contact.html">Contact</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="about.html">About</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide">Service Area</h3>
+                    <ul class="flex flex-col gap-4 text-slate-400 font-medium">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[#2ED8C3] text-xl mt-0.5">location_on</span>
+                            <span>Proudly serving Tampa Bay, FL and surrounding areas.</span>
+                        </li>
+                        <li class="flex items-start gap-3 mt-2 bg-[#0B1A2A] p-4 rounded-xl border border-white/5">
+                            <span class="material-symbols-outlined text-[#3B82F6] text-xl">info</span>
+                            <span class="text-sm">Digital agency - No walk-ins. Meetings by appointment only.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p>© 2024 Klicks To Clients. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-slate-300 transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-slate-300 transition-colors" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('obs-visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1, 
+                rootMargin: "0px 0px -10% 0px" 
+            });
+
+            document.querySelectorAll('.obs-animate').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

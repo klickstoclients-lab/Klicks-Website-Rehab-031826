@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Contact Us | Klicks To Clients</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#C9F84A",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#08131F",
+                        "accent-cyan": "#2ED8C3",
+                        "accent-blue": "#3B82F6",
+                        "surface-dark": "#0B1A2A",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'scroll-slow': 'scroll-slow 20s linear infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0 },
+                        },
+                        'scroll-slow': {
+                            '0%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) infinite;
+        }
+
+        .faq-accordion[open] .faq-icon {
+            transform: rotate(180deg);
+            color: #C9F84A;
+        }
+
+        .faq-accordion[open] {
+            border-color: rgba(46, 216, 195, 0.18);
+            box-shadow: 0 0 20px rgba(46, 216, 195, 0.08);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .glass-card {
+            background: rgba(15, 35, 52, 0.58);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(99, 181, 255, 0.14);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+        }
+
+        /* Scroll Animations */
+        .obs-animate {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), gap 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .obs-animate.obs-visible {
+            opacity: 1;
+        }
+
+        /* 5-Item Squeeze Animation (starts wide/scaled, transitions to normal) */
+        .obs-squeeze {
+            gap: 2rem; 
+            transform: scale(1.05); 
+        }
+        @media (min-width: 768px) {
+            .obs-squeeze {
+                gap: 5rem;
+            }
+        }
+        .obs-squeeze.obs-visible {
+            gap: 2rem !important;
+            transform: scale(1) !important;
+        }
+        @media (min-width: 768px) {
+            .obs-squeeze.obs-visible {
+                gap: 4rem !important;
+            }
+        }
+
+        /* Fade-Up Animation */
+        .obs-fade-up {
+            transform: translateY(30px);
+        }
+        .obs-fade-up.obs-visible {
+            transform: translateY(0);
+        }
+
+        /* How It Works Animations */
+        .obs-draw-line {
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .obs-visible.obs-draw-line {
+            width: 100%;
+        }
+        
+        .obs-draw-line-y {
+            height: 0%;
+            transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .obs-visible.obs-draw-line-y {
+            height: 100%;
+        }
+
+        .obs-visible .obs-node {
+            border-color: rgba(201, 248, 74, 0.6);
+            box-shadow: inset 0 0 15px rgba(201, 248, 74, 0.05), 0 0 20px rgba(201, 248, 74, 0.15);
+        }
+        .obs-visible .obs-node span {
+            color: #C9F84A;
+        }
+
+        /* Contact Form Expand Animation */
+        @keyframes formExpand {
+            0%   { max-height: 0; opacity: 0; }
+            8%   { opacity: 1; }
+            100% { max-height: 700px; opacity: 1; }
+        }
+
+        .form-animate-in {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .form-animate-in.form-open {
+            animation: formExpand 2.2s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-body min-h-screen flex flex-col antialiased">
+    <header class="sticky top-0 z-50 bg-[#08131F]/70 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain group-hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                    <span class="font-display font-bold text-xl tracking-tight text-white group-hover:text-slate-200 transition-colors">Klicks To Clients</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="index.html#top">Home</a>
+                <a class="text-sm font-medium text-white transition-colors border-b border-[#2ED8C3] pb-1" href="contact.html">Contact</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="index.html#faq">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <a href="tel:+18134448804" class="hidden lg:flex items-center gap-2 text-slate-300 text-sm font-medium hover:text-[#2ED8C3] transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3] text-lg">call</span>
+                    <span>813-444-8804</span>
+                </a>
+                <a href="index.html#how-it-works"
+                    class="bg-[#C9F84A] text-[#08131F] px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-colors shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block">
+                    Book Strategy Call
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Section 1: Header -->
+        <section class="pt-32 pb-16 relative overflow-hidden bg-[#06182C] obs-animate obs-fade-up">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,181,255,0.05)_0%,transparent_60%)]"></div>
+            <div class="max-w-3xl mx-auto px-6 relative z-10 text-center">
+                <h1 class="font-display text-5xl md:text-6xl font-black text-[#F5F8FC] leading-tight tracking-tight mb-8">
+                    Let’s Talk About Your Growth
+                </h1>
+                <p class="text-xl md:text-2xl text-[#9FB1C3] font-medium leading-relaxed font-body">
+                    Tell us a bit about your business and what you’re looking to improve &mdash; we’ll take it from there.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Embedded Contact Form -->
+        <section class="pb-24 relative bg-[#06182C] obs-animate obs-fade-up" style="transition-delay: 0.1s;">
+            <div class="max-w-3xl mx-auto px-6 relative z-10">
+                <div class="form-animate-in" id="form-wrapper">
+                    <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-[2rem] p-4 md:p-8 shadow-2xl relative overflow-hidden">
+                        <iframe
+                            src="https://api.leadconnectorhq.com/widget/form/oUTQo16N1I9UpF0fQNqi"
+                            style="width:100%;height:660px;border:none;border-radius:10px;display:block;"
+                            id="inline-oUTQo16N1I9UpF0fQNqi" 
+                            data-layout="{'id':'INLINE'}"
+                            data-trigger-type="alwaysShow"
+                            data-trigger-value=""
+                            data-activation-type="alwaysActivated"
+                            data-activation-value=""
+                            data-deactivation-type="neverDeactivate"
+                            data-deactivation-value=""
+                            data-form-name="Klicks Website Form"
+                            data-height="612"
+                            data-layout-iframe-id="inline-oUTQo16N1I9UpF0fQNqi"
+                            data-form-id="oUTQo16N1I9UpF0fQNqi"
+                            title="Klicks Website Form"
+                                >
+                        </iframe>
+                        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+                    </div>
+                </div>
+                <!-- Micro reassurance text -->
+                <p class="text-center mt-6" style="font-size: 13px; color: rgba(159,177,195,0.85);">
+                    No pressure. Just a quick conversation to see if this makes sense.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3: Direct Contact Option -->
+        <section class="py-24 relative bg-[#08131F] border-t border-white/5 obs-animate obs-fade-up" style="transition-delay: 0.2s;">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,248,74,0.02)_0%,transparent_50%)]"></div>
+            <div class="max-w-xl mx-auto px-6 relative z-10 text-center flex flex-col items-center gap-6">
+                <h2 class="font-display text-4xl font-black text-white tracking-tight">
+                    Prefer to talk now?
+                </h2>
+                <div class="flex flex-col items-center gap-5 mt-4">
+                    <a href="tel:+18134448804" class="text-3xl font-display font-bold text-[#F5F8FC] hover:text-[#2ED8C3] transition-colors tracking-wide flex items-center gap-3">
+                        <span class="material-symbols-outlined text-[#2ED8C3] text-4xl">phone_in_talk</span>
+                        (813) 444-8804
+                    </a>
+                    <a href="mailto:klickstoclients@gmail.com" class="text-xl font-medium text-[#9FB1C3] hover:text-white transition-colors flex items-center gap-3">
+                        <span class="material-symbols-outlined text-slate-500 text-2xl">mail</span>
+                        klickstoclients@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#08131F] border-t border-white/5 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                        <span class="font-display font-bold text-2xl tracking-tight text-white">Klicks To Clients</span>
+                    </div>
+                    <p class="text-slate-400 mb-8 max-w-md leading-relaxed">
+                        The premium local growth agency for Tampa Bay businesses. We build connected systems that turn
+                        visibility into real, measurable revenue.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-colors border border-white/10 hover:border-white/30"
+                            href="#">
+                            <span class="material-symbols-outlined">share</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide">Quick Links</h3>
+                    <ul class="flex flex-col gap-4 text-slate-400 font-medium">
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="index.html#top">Home</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="contact.html">Contact</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="about.html">About</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide">Service Area</h3>
+                    <ul class="flex flex-col gap-4 text-slate-400 font-medium">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[#2ED8C3] text-xl mt-0.5">location_on</span>
+                            <span>Proudly serving Tampa Bay, FL and surrounding areas.</span>
+                        </li>
+                        <li class="flex items-start gap-3 mt-2 bg-[#0B1A2A] p-4 rounded-xl border border-white/5">
+                            <span class="material-symbols-outlined text-[#3B82F6] text-xl">info</span>
+                            <span class="text-sm">Digital agency - No walk-ins. Meetings by appointment only.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p>© 2024 Klicks To Clients. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-slate-300 transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-slate-300 transition-colors" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('obs-visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1, 
+                rootMargin: "0px 0px -10% 0px" 
+            });
+
+            document.querySelectorAll('.obs-animate').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Trigger form expand animation after 1s
+            const fw = document.getElementById('form-wrapper');
+            if (fw) {
+                requestAnimationFrame(() => fw.classList.add('form-open'));
+            }
+        });
+    </script>
+</body>
+
+</html>

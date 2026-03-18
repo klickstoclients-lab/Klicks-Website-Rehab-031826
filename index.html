@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Klicks To Clients - Premium Growth Agency Home</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#C9F84A",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#08131F",
+                        "accent-cyan": "#2ED8C3",
+                        "accent-blue": "#3B82F6",
+                        "surface-dark": "#0B1A2A",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'scroll-slow': 'scroll-slow 20s linear infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0 },
+                        },
+                        'scroll-slow': {
+                            '0%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) infinite;
+        }
+
+        /* Premium FAQ Card Styles */
+        .faq-accordion {
+            background: #102A3A;
+            border: 1px solid rgba(0, 200, 255, 0.15) !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .faq-accordion:hover {
+            border-color: rgba(0, 200, 255, 0.35) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
+        }
+
+        .faq-accordion summary span.faq-q {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .faq-accordion .faq-answer {
+            color: #A8C1D1;
+        }
+
+        .faq-icon {
+            color: rgba(0, 200, 255, 0.55);
+            font-size: 2rem;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
+        }
+
+        .faq-accordion[open] .faq-icon {
+            transform: rotate(180deg);
+            color: #C7F464;
+        }
+
+        .faq-accordion[open] {
+            border-color: rgba(0, 200, 255, 0.3) !important;
+            box-shadow: 0 0 28px rgba(0, 200, 255, 0.07), 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .glass-card {
+            background: rgba(15, 35, 52, 0.58);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(99, 181, 255, 0.14);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+        }
+
+
+        /* Scroll Animations */
+        .obs-animate {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), gap 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .obs-animate.obs-visible {
+            opacity: 1;
+        }
+
+        /* 5-Item Squeeze Animation (starts wide/scaled, transitions to normal) */
+        .obs-squeeze {
+            gap: 2rem; 
+            transform: scale(1.05); 
+        }
+        @media (min-width: 768px) {
+            .obs-squeeze {
+                gap: 5rem;
+            }
+        }
+        .obs-squeeze.obs-visible {
+            gap: 2rem !important; /* Tailwind gap-8 */
+            transform: scale(1) !important;
+        }
+        @media (min-width: 768px) {
+            .obs-squeeze.obs-visible {
+                gap: 4rem !important; /* Tailwind md:gap-16 */
+            }
+        }
+
+        /* Fade-Up Animation */
+        .obs-fade-up {
+            transform: translateY(30px);
+        }
+        .obs-fade-up.obs-visible {
+            transform: translateY(0);
+        }
+
+        /* How It Works Animations */
+        .obs-draw-line {
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .obs-visible.obs-draw-line {
+            width: 100%;
+        }
+        
+        .obs-draw-line-y {
+            height: 0%;
+            transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+        .obs-visible.obs-draw-line-y {
+            height: 100%;
+        }
+
+        .obs-visible .obs-node {
+            border-color: rgba(201, 248, 74, 0.6);
+            box-shadow: inset 0 0 15px rgba(201, 248, 74, 0.05), 0 0 20px rgba(201, 248, 74, 0.15);
+        }
+        .obs-visible .obs-node span {
+            color: #C9F84A;
+        }
+    </style>
+</head>
+
+<body id="top"
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-body min-h-screen flex flex-col antialiased">
+    <header class="sticky top-0 z-50 bg-[#08131F]/70 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                <span class="font-display font-bold text-xl tracking-tight text-white" style="">Klicks To Clients</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium text-white transition-colors border-b border-[#2ED8C3] pb-1" href="#top"
+                    style="">Home</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="contact.html"
+                    style="">Contact</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="about.html"
+                    style="">About</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#faq"
+                    style="">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <a href="tel:+18134448804" class="hidden lg:flex items-center gap-2 text-slate-300 text-sm font-medium hover:text-[#2ED8C3] transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3] text-lg" style="">call</span>
+                    <span class="" style="">813-444-8804</span>
+                </a>
+                <a href="contact.html"
+                    class="bg-[#C9F84A] text-[#08131F] px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-colors shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block text-center"
+                    style="">
+                    Book Strategy Call
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow">
+        <section class="relative pt-20 pb-32 overflow-hidden bg-[#08131F]">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(46,216,195,0.1)_0%,transparent_50%)]">
+            </div>
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(11,26,42,0.8)_0%,transparent_50%)]">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#08131F]/20 via-transparent to-[#08131F]"></div>
+            <div
+                class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-24 items-center relative z-10">
+                <div class="flex flex-col gap-8">
+                    <div class="inline-flex items-center gap-2 text-xs text-slate-300 font-semibold tracking-widest uppercase bg-white/5 border border-white/10 px-4 py-2 rounded-full w-fit backdrop-blur-sm"
+                        style="">
+                        <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">location_on</span>
+                        Based in Greater Tampa Bay • Serving Clients Nationwide
+                    </div>
+                    <h1 class="font-display text-5xl lg:text-7xl font-black leading-[1.05] tracking-tighter text-white drop-shadow-sm"
+                        style="">
+                        Turn Local Visibility Into <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400"
+                            style="">Real Revenue</span>
+                    </h1>
+                    <p class="text-xl text-slate-300 leading-relaxed font-body max-w-xl font-medium" style="">
+                        We build systems that increase visibility, trust, and conversions — so your business generates consistent inbound opportunities.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-5 pt-4">
+                        <a href="contact.html"
+                            class="bg-[#C9F84A] text-[#08131F] px-8 py-4 rounded-xl font-display font-bold text-lg hover:bg-[#b5df42] transition-all shadow-[0_0_30px_rgba(201,248,74,0.25)] hover:shadow-[0_0_40px_rgba(201,248,74,0.4)] flex items-center justify-center gap-2 group"
+                            style="">
+                            Book a Strategy Call
+                            <span
+                                class="material-symbols-outlined text-[#08131F] group-hover:translate-x-1 transition-transform"
+                                style="">arrow_forward</span>
+                        </a>
+                        <a href="#how-it-works"
+                            class="px-8 py-4 rounded-xl font-display font-bold text-lg border border-[#2ED8C3]/30 text-white hover:bg-[#2ED8C3]/10 hover:border-[#2ED8C3]/60 transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
+                            style="">
+                            See How It Works
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4 pt-6">
+                        <div class="flex -space-x-3">
+                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F]"
+                                src="avatar1.png?v=2">
+                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F]"
+                                src="avatar2.png?v=2">
+                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F]"
+                                src="avatar3.png?v=2">
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-[#08131F] bg-[#0B1A2A] flex items-center justify-center text-xs font-bold text-white">
+                                4.9</div>
+                        </div>
+                        <div class="text-sm font-medium text-slate-400">
+                            <div class="flex text-[#C9F84A] text-sm">
+                                <span class="material-symbols-outlined text-base">star</span>
+                                <span class="material-symbols-outlined text-base">star</span>
+                                <span class="material-symbols-outlined text-base">star</span>
+                                <span class="material-symbols-outlined text-base">star</span>
+                                <span class="material-symbols-outlined text-base">star</span>
+                            </div>
+                            <span class="text-white">Trusted by</span> Local Businesses Serious about Growth
+                        </div>
+                    </div>
+                </div>
+                <div class="relative h-[700px] hidden lg:block w-full flex items-center justify-center bg-[#08131F] rounded-[3rem] border border-white/10 m-4 overflow-hidden shadow-[0_0_50px_rgba(46,216,195,0.05)]"
+                    id="hero-scroll-container">
+                    <!-- Native img element — browsers render these with hardware-accelerated decoding, far sharper than canvas -->
+                    <img id="hero-sequence-img" class="w-full h-full object-cover"
+                        src="KlicksHeroVid_001/KlicksHeroVid_000.jpg" alt="Klicks To Clients Hero Animation">
+                </div>
+        </section>
+        <section class="border-y border-slate-800 bg-[#0B1A2A]/80 py-8 overflow-hidden backdrop-blur-sm relative z-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <div
+                    class="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-sm font-display font-medium text-slate-300 obs-animate obs-squeeze">
+                    <div class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span>
+                        Websites That Convert</div>
+                    <div class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span> Local
+                        SEO Mastery</div>
+                    <div class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span>
+                        Reputation Management</div>
+                    <div class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span> Google
+                        Business Optimization</div>
+                    <div class="flex items-center gap-3" style=""><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span> AI
+                        Automation</div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-background-light dark:bg-background-dark obs-animate obs-fade-up" id="services">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 relative">
+                    <div
+                        class="aspect-[4/3] rounded-2xl bg-[#0B1A2A] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative group">
+                        <div
+                            class="absolute -top-[20%] -left-[20%] w-[60%] h-[60%] bg-[#2ED8C3]/10 rounded-full blur-[100px]">
+                        </div>
+                        <div
+                            class="absolute -bottom-[20%] -right-[20%] w-[60%] h-[60%] bg-[#C9F84A]/10 rounded-full blur-[100px]">
+                        </div>
+                        <div
+                            class="h-10 bg-white/5 border-b border-white/10 flex items-center px-4 gap-2 relative z-20 backdrop-blur-md">
+                            <div class="flex gap-1.5">
+                                <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                                <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+                            </div>
+                            <div class="flex-grow max-w-md mx-auto bg-white/5 rounded-full h-5 flex items-center px-3">
+                                <span class="text-[10px] text-slate-500 font-mono tracking-wider"
+                                    style="">your-premium-business.com</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 top-10 overflow-hidden">
+                            <div class="animate-scroll-slow flex flex-col">
+                                <div
+                                    class="min-h-[300px] p-8 flex flex-col gap-4 bg-gradient-to-b from-[#0B1A2A] to-transparent">
+                                    <div class="w-24 h-6 bg-white/5 rounded"></div>
+                                    <div class="space-y-2">
+                                        <div class="h-8 bg-white/10 rounded-lg w-3/4"></div>
+                                        <div class="h-8 bg-white/10 rounded-lg w-1/2"></div>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <div class="h-3 bg-slate-700 rounded w-full"></div>
+                                        <div class="h-3 bg-slate-700 rounded w-5/6"></div>
+                                    </div>
+                                    <div class="w-40 h-10 bg-[#C9F84A]/20 border border-[#C9F84A]/30 rounded-lg mt-4">
+                                    </div>
+                                </div>
+                                <div class="p-8 bg-white/[0.02] border-y border-white/5 relative">
+                                    <div class="max-w-xs mx-auto space-y-4">
+                                        <div class="text-center space-y-1 mb-6">
+                                            <div class="text-xs font-bold text-[#2ED8C3] tracking-widest uppercase"
+                                                style="">Get A Quote</div>
+                                            <div class="text-lg font-display font-bold text-white" style="">Start Your
+                                                Project</div>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <div
+                                                class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-4 relative overflow-hidden">
+                                                <span class="text-xs text-slate-400 font-medium typing-effect"
+                                                    style="">John Doe</span>
+                                                <div class="w-[1px] h-4 bg-[#2ED8C3] ml-0.5 animate-blink"></div>
+                                            </div>
+                                            <div
+                                                class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-4">
+                                                <span class="text-xs text-slate-600" style="">Email Address</span>
+                                            </div>
+                                            <div class="h-24 bg-[#08131F] border border-white/10 rounded-lg p-4">
+                                                <span class="text-xs text-slate-600" style="">Message...</span>
+                                            </div>
+                                            <div
+                                                class="h-12 bg-[#C9F84A] rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(201,248,74,0.2)]">
+                                                <span class="text-sm font-bold text-[#08131F]" style="">Submit
+                                                    Inquiry</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="min-h-[200px] p-8 grid grid-cols-2 gap-4">
+                                    <div class="aspect-square bg-white/5 rounded-xl border border-white/5"></div>
+                                    <div class="aspect-square bg-white/5 rounded-xl border border-white/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute bottom-6 left-6 bg-[#0B1A2A]/80 backdrop-blur-xl border border-[#2ED8C3]/30 p-3 rounded-xl shadow-2xl z-30 flex items-center gap-3 transition-transform hover:scale-105">
+                            <div class="w-8 h-8 rounded-full bg-[#2ED8C3]/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">bolt</span>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter" style="">
+                                    Conversion Rate</div>
+                                <div class="text-white font-display font-black text-lg" style="">+142%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-[#0B1A2A] border border-slate-700 p-4 rounded-xl shadow-2xl hidden sm:block z-40">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#C9F84A]/10 flex items-center justify-center border border-[#C9F84A]/20">
+                                <span class="material-symbols-outlined text-[#C9F84A]" style="">speed</span>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-medium tracking-wide uppercase" style="">Page
+                                    Speed</div>
+                                <div class="font-display font-black text-2xl text-white" style="">99<span
+                                        class="text-sm text-slate-500 font-normal" style="">/100</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 order-1 md:order-2">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#2ED8C3] w-fit text-sm font-semibold tracking-wide backdrop-blur-sm"
+                        style="">
+                        <span class="material-symbols-outlined text-sm" style="">desktop_windows</span>
+                        Core System 01
+                    </div>
+                    <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white leading-tight" style="">
+                        Websites Built to Convert Traffic into Revenue
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed" style="">
+                        Your website is the center of your local growth engine. We don't just build digital brochures;
+                        we engineer high-performance platforms designed to capture leads, build trust, and rank at the
+                        top of local searches.
+                    </p>
+                    <ul class="flex flex-col gap-5 mt-2">
+                        <li class="flex items-start gap-4 bg-[#0B1A2A]/50 p-4 rounded-xl border border-white/5"
+                            style="">
+                            <div
+                                class="w-8 h-8 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">task_alt</span>
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 dark:text-white block font-display text-lg mb-1">Custom,
+                                    Conversion-Focused Design</strong>
+                                <span class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed block"
+                                    style="">Tailored completely to your brand identity, guiding visitors intuitively to
+                                    take action.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 bg-[#0B1A2A]/50 p-4 rounded-xl border border-white/5"
+                            style="">
+                            <div
+                                class="w-8 h-8 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">task_alt</span>
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 dark:text-white block font-display text-lg mb-1">Flawless
+                                    Mobile Optimization</strong>
+                                <span class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed block"
+                                    style="">Over 60% of local searches happen on mobile. Your site will look and
+                                    perform perfectly on any device.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 bg-[#0B1A2A]/50 p-4 rounded-xl border border-white/5">
+                            <div
+                                class="w-8 h-8 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm">task_alt</span>
+                            </div>
+                            <div>
+                                <strong class="text-white block font-display text-lg mb-1">Built for Local Lead Generation</strong>
+                                <span class="text-slate-400 text-sm leading-relaxed block">Designed as the foundation of a grander systemized process, capturing real inbound opportunities for consecutive business growth.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Why the Right System Changes Everything Section -->
+        <section class="py-32 bg-[#0D1E2D] relative overflow-hidden border-t border-white/5 obs-animate obs-fade-up" style="transition-duration: 1.6s; transition-delay: 0.15s;">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(46,216,195,0.05)_0%,transparent_50%)]">
+            </div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-white leading-tight mb-6" style="">
+                        Why the Right System Changes Everything
+                    </h2>
+                    <p class="text-xl text-[#9FB1C3] max-w-3xl mx-auto font-medium leading-relaxed font-body" style="">
+                        Stronger visibility, better trust, and more booked opportunities all work together to support
+                        real business growth.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1: Stronger Visibility -->
+                    <div
+                        class="glass-card p-10 rounded-[2rem] flex flex-col gap-8 transition-all duration-500 hover:-translate-y-2 group overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(46,216,195,0.12)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-[#2ED8C3]/10 border border-[#2ED8C3]/20 flex items-center justify-center mb-6 relative">
+                                <div
+                                    class="absolute inset-0 rounded-2xl bg-[#2ED8C3]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-[#2ED8C3] text-4xl transition-all duration-500 group-hover:scale-110"
+                                    style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 300;">location_on</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-white mb-4" style="">Stronger Visibility
+                            </h3>
+                            <p class="text-[#9FB1C3] text-lg font-body leading-relaxed" style="">
+                                Get found more often by the people already looking for your services.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Card 2: Better Trust -->
+                    <div
+                        class="glass-card p-10 rounded-[2rem] flex flex-col gap-8 transition-all duration-500 hover:-translate-y-2 group overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 flex items-center justify-center mb-6 relative">
+                                <div
+                                    class="absolute inset-0 rounded-2xl bg-[#3B82F6]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-[#3B82F6] text-4xl transition-all duration-500 group-hover:scale-110"
+                                    style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 300;">verified</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-white mb-4" style="">Better Trust</h3>
+                            <p class="text-[#9FB1C3] text-lg font-body leading-relaxed" style="">
+                                Create a stronger first impression that builds confidence fast with potential clients.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Card 3: More Booked Opportunities -->
+                    <div
+                        class="glass-card p-10 rounded-[2rem] flex flex-col gap-8 transition-all duration-500 hover:-translate-y-2 group overflow-hidden relative">
+                        <div
+                            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,248,74,0.12)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-[#C9F84A]/10 border border-[#C9F84A]/20 flex items-center justify-center mb-6 relative">
+                                <div
+                                    class="absolute inset-0 rounded-2xl bg-[#C9F84A]/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <span
+                                    class="material-symbols-outlined text-[#C9F84A] text-4xl transition-all duration-500 group-hover:scale-110"
+                                    style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 300;">hub</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-white mb-4" style="">More Opportunities</h3>
+                            <p class="text-[#9FB1C3] text-lg font-body leading-relaxed" style="">
+                                Turn attention into real conversations and consistent business growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- How It Works Section -->
+        <section class="py-32 bg-[#06182C] relative overflow-hidden obs-animate obs-fade-up" id="how-it-works">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,181,255,0.05)_0%,transparent_70%)]"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <!-- Header -->
+                <div class="text-center mb-20 max-w-3xl mx-auto">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-[#F5F8FC] leading-tight mb-6">
+                        How Klicks To Clients Turns Visibility Into Real Revenue
+                    </h2>
+                    <p class="text-xl text-[#9FB1C3] font-medium leading-relaxed font-body">
+                        Most businesses focus on one piece and wonder why results are inconsistent. We connect the entire system so visibility, trust, and conversion work together — not against each other.
+                    </p>
+                </div>
+
+                <!-- 4-Step System -->
+                <div class="relative">
+                    <!-- Desktop Line -->
+                    <div class="hidden md:block absolute top-[1.5rem] left-[12.5%] right-[12.5%] h-[2px] bg-[#63b5ff]/15">
+                        <div class="h-full bg-gradient-to-r from-[#63b5ff]/10 via-[#63b5ff]/40 to-[#63b5ff]/60 obs-animate obs-draw-line" style="box-shadow: 0 0 10px rgba(99,181,255,0.2);"></div>
+                    </div>
+                    <!-- Mobile Line -->
+                    <div class="block md:hidden absolute left-[1.5rem] top-[1.5rem] bottom-[1.5rem] w-[2px] bg-[#63b5ff]/15">
+                        <div class="w-full bg-[#63b5ff]/30 obs-animate obs-draw-line-y" style="box-shadow: 0 0 10px rgba(99,181,255,0.2);"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-4 gap-8 md:gap-6 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col md:items-center relative group obs-animate obs-fade-up" style="transition-delay: 0.1s;">
+                            <!-- Node -->
+                            <div class="absolute left-0 top-6 md:relative md:top-auto md:left-auto flex items-center justify-center md:mb-8">
+                                <div class="w-12 h-12 rounded-full bg-[#0F2334] border-2 border-[#63B5FF]/20 flex items-center justify-center z-10 transition-all duration-700 obs-node">
+                                    <span class="font-display font-bold text-lg text-slate-400 transition-colors duration-700">1</span>
+                                    <div class="absolute inset-0 rounded-full bg-[#C9F84A] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md -z-10"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card -->
+                            <div class="pl-20 md:pl-0 pt-2 md:pt-0 w-full h-full">
+                                <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-2xl p-8 h-full transition-all duration-300 hover:border-[#63B5FF]/30 hover:-translate-y-1 relative overflow-hidden group/card shadow-lg flex flex-col items-center md:text-center text-left">
+                                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,181,255,0.08)_0%,transparent_70%)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                                    <h3 class="font-display font-bold text-xl text-[#F5F8FC] mb-4 relative z-10">Get Found First</h3>
+                                    <p class="text-[#9FB1C3] leading-relaxed relative z-10">
+                                        Show up where local customers are already searching through Search Engine Optimization (SEO), Google Business Profile optimization, and listings.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex flex-col md:items-center relative group obs-animate obs-fade-up" style="transition-delay: 0.2s;">
+                            <div class="absolute left-0 top-6 md:relative md:top-auto md:left-auto flex items-center justify-center md:mb-8">
+                                <div class="w-12 h-12 rounded-full bg-[#0F2334] border-2 border-[#63B5FF]/20 flex items-center justify-center z-10 transition-all duration-700 obs-node">
+                                    <span class="font-display font-bold text-lg text-slate-400 transition-colors duration-700">2</span>
+                                    <div class="absolute inset-0 rounded-full bg-[#C9F84A] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md -z-10"></div>
+                                </div>
+                            </div>
+                            <div class="pl-20 md:pl-0 pt-2 md:pt-0 w-full h-full">
+                                <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-2xl p-8 h-full transition-all duration-300 hover:border-[#63B5FF]/30 hover:-translate-y-1 relative overflow-hidden group/card shadow-lg flex flex-col items-center md:text-center text-left">
+                                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,181,255,0.08)_0%,transparent_70%)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                                    <h3 class="font-display font-bold text-xl text-[#F5F8FC] mb-4 relative z-10">Build Trust Instantly</h3>
+                                    <p class="text-[#9FB1C3] leading-relaxed relative z-10">
+                                        Strengthen your first impression with reviews, reputation signals, and a more credible online presence.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col md:items-center relative group obs-animate obs-fade-up" style="transition-delay: 0.3s;">
+                            <div class="absolute left-0 top-6 md:relative md:top-auto md:left-auto flex items-center justify-center md:mb-8">
+                                <div class="w-12 h-12 rounded-full bg-[#0F2334] border-2 border-[#63B5FF]/20 flex items-center justify-center z-10 transition-all duration-700 obs-node">
+                                    <span class="font-display font-bold text-lg text-slate-400 transition-colors duration-700">3</span>
+                                    <div class="absolute inset-0 rounded-full bg-[#C9F84A] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md -z-10"></div>
+                                </div>
+                            </div>
+                            <div class="pl-20 md:pl-0 pt-2 md:pt-0 w-full h-full">
+                                <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-2xl p-8 h-full transition-all duration-300 hover:border-[#63B5FF]/30 hover:-translate-y-1 relative overflow-hidden group/card shadow-lg flex flex-col items-center md:text-center text-left">
+                                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,181,255,0.08)_0%,transparent_70%)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                                    <h3 class="font-display font-bold text-xl text-[#F5F8FC] mb-4 relative z-10">Convert More Visitors</h3>
+                                    <p class="text-[#9FB1C3] leading-relaxed relative z-10">
+                                        Designed to increase conversion rates and reduce missed opportunities.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex flex-col md:items-center relative group obs-animate obs-fade-up" style="transition-delay: 0.4s;">
+                            <div class="absolute left-0 top-6 md:relative md:top-auto md:left-auto flex items-center justify-center md:mb-8">
+                                <div class="w-12 h-12 rounded-full bg-[#0F2334] border-2 border-[#63B5FF]/20 flex items-center justify-center z-10 transition-all duration-700 obs-node">
+                                    <span class="font-display font-bold text-lg text-slate-400 transition-colors duration-700">4</span>
+                                    <div class="absolute inset-0 rounded-full bg-[#C9F84A] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md -z-10"></div>
+                                </div>
+                            </div>
+                            <div class="pl-20 md:pl-0 pt-2 md:pt-0 w-full h-full">
+                                <div class="bg-[#0F2334] border border-[#63B5FF]/12 rounded-2xl p-8 h-full transition-all duration-300 hover:border-[#63B5FF]/30 hover:-translate-y-1 relative overflow-hidden group/card shadow-lg flex flex-col items-center md:text-center text-left">
+                                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,181,255,0.08)_0%,transparent_70%)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                                    <h3 class="font-display font-bold text-xl text-[#F5F8FC] mb-4 relative z-10">Capture What Others Miss</h3>
+                                    <p class="text-[#9FB1C3] leading-relaxed relative z-10">
+                                        Use follow-up systems, automation, and website visitor retargeting to bring prospects back and turn missed traffic into real business.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-32 bg-[#0D1E2D] relative overflow-hidden obs-animate obs-fade-up" id="faq">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(46,216,195,0.03)_0%,transparent_50%)]">
+            </div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-[#F5F8FC] leading-tight mb-6" style="">
+                        Frequently Asked Questions
+                    </h2>
+                    <p class="text-lg text-[#9FB1C3] max-w-2xl mx-auto font-medium leading-relaxed" style="">
+                        Answers to common questions about how Klicks To Clients helps businesses improve visibility,
+                        trust, and revenue.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">What does Klicks To Clients actually do?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">
+                                We build integrated local growth systems. Instead of just "doing SEO" or "making a
+                                site" or "running ads," we connect your website, local search optimization (GBP), review management, and
+                                follow-up tools into a single engine that works together to generate measurable revenue.
+                            </p>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">Do I just need a better website to get more leads?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">A better website helps &mdash; but by itself, it's not enough.</p>
+                            <p class="faq-answer leading-relaxed text-lg mt-4" style="">Most businesses don't have a website problem, they have a system problem. We make sure your visibility, trust, and conversion all work together so you're not relying on one piece to do all the work.</p>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">Can you help improve Google Business Profile visibility and reviews?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">Absolutely. Local SEO and reputation management are core to our strategy. We optimize your GBP for maximum reach in the "Map Pack" and implement automated systems to help you consistently collect and showcase 5-star reviews from your happy customers.</p>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">Will this work for my type of business?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">Yes &mdash; our systems are designed specifically for local, service-based businesses.</p>
+                            <p class="faq-answer leading-relaxed text-lg mt-4" style="">Whether you're a roofing company, contractor, or home service provider, the fundamentals are the same: visibility, trust, and consistent follow-up. We tailor the system to your market so it actually produces leads, referrals, and repeat business.</p>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">What if I don't know what my business needs?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">That's exactly what we help you figure out.</p>
+                            <p class="faq-answer leading-relaxed text-lg mt-4" style="">Most businesses don't need more services &mdash; they need the right system. We look at where you're losing opportunities right now and focus on what will bring in the fastest results, whether that's improving visibility, increasing trust, or fixing conversion gaps.</p>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">How do I get started?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">The first step is booking a free Strategy Call.</p>
+                            <p class="faq-answer leading-relaxed text-lg mt-4" style="">We'll look at your current setup, show you where you're missing opportunities, and walk you through exactly how our system can help you generate more leads, referrals, and repeat business &mdash; without guessing or wasting time.</p>
+                            <a href="contact.html" class="mt-6 bg-[#C9F84A] text-[#08131F] px-8 py-3 rounded-lg font-display font-bold text-sm hover:bg-[#b5df42] transition-colors inline-block text-center" style="">Book Strategy Call Now</a>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">How quickly can I expect results?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">It depends on where you're starting, but most businesses begin seeing movement within the first 30&ndash;60 days.</p>
+                            <p class="faq-answer leading-relaxed text-lg mt-4" style="">Some improvements, like better conversion from your existing traffic, can happen quickly. Others, like increased visibility and consistent lead flow, build over time. Our focus is on creating steady, reliable growth &mdash; not short-term spikes that disappear.</p>
+                        </div>
+                    </details>
+                    <details class="faq-accordion rounded-2xl" style="">
+                        <summary class="flex items-center justify-between p-7 cursor-pointer list-none outline-none" style="">
+                            <span class="faq-q font-display text-xl pr-4" style="">How many leads can I expect?</span>
+                            <span class="faq-icon material-symbols-outlined flex-shrink-0" style="">expand_more</span>
+                        </summary>
+                        <div class="px-7 pb-7 pt-0">
+                            <p class="faq-answer leading-relaxed text-lg" style="">It depends on your market, competition, and where you're starting &mdash; so we don't make inflated promises.</p>
+                            <p class="faq-answer leading-relaxed text-lg mt-4" style="">Instead, we focus on building a system that increases your opportunities consistently. That means more of the right leads, better conversion, and more jobs coming from referrals and repeat business &mdash; not just random inquiries.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 relative overflow-hidden bg-[#08131F] obs-animate obs-fade-up">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(46,216,195,0.05)_0%,transparent_60%)]">
+            </div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center gap-8">
+                <h2 class="font-display text-4xl md:text-6xl font-black text-white leading-tight tracking-tight"
+                    style="">
+                    Ready to Dominate Your Local Market?
+                </h2>
+                <p class="text-xl text-slate-400 max-w-2xl font-medium" style="">
+                    Stop losing customers to competitors with inferior services but better visibility. Let's build your
+                    growth engine.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 mt-6 w-full justify-center">
+                    <a href="contact.html"
+                        class="bg-[#C9F84A] text-[#08131F] px-10 py-5 rounded-xl font-display font-black text-xl hover:bg-[#b5df42] transition-colors shadow-[0_0_30px_rgba(201,248,74,0.3)] w-full sm:w-auto flex items-center justify-center"
+                        style="">
+                        Book Your Strategy Call
+                    </a>
+                </div>
+                <a href="tel:+18134448804" class="mt-4 flex items-center gap-3 text-slate-300 hover:text-[#2ED8C3] transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3]" style="">phone_in_talk</span>
+                    <span class="font-display font-bold text-xl" style="">Or call us: (813) 444-8804</span>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-[#08131F] border-t border-white/5 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                        <span class="font-display font-bold text-2xl tracking-tight text-white" style="">Klicks To
+                            Clients</span>
+                    </div>
+                    <p class="text-slate-400 mb-8 max-w-md leading-relaxed" style="">
+                        The premium local growth agency for Tampa Bay businesses. We build connected systems that turn
+                        visibility into real, measurable revenue.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-colors border border-white/10 hover:border-white/30"
+                            href="#" style="">
+                            <span class="material-symbols-outlined" style="">share</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide" style="">Quick Links</h3>
+                    <ul class="flex flex-col gap-4 text-slate-400 font-medium">
+                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="#top"
+                                style="">Home</a></li>
+                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="contact.html" style="">Contact</a></li>
+                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="about.html" style="">About</a></li>
+                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="#faq"
+                                style="">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide" style="">Service Area</h3>
+                    <ul class="flex flex-col gap-4 text-slate-400 font-medium">
+                        <li class="flex items-start gap-3" style="">
+                            <span class="material-symbols-outlined text-[#2ED8C3] text-xl mt-0.5"
+                                style="">location_on</span>
+                            <span class="" style="">Proudly serving Tampa Bay, FL and surrounding areas.</span>
+                        </li>
+                        <li class="flex items-start gap-3 mt-2 bg-[#0B1A2A] p-4 rounded-xl border border-white/5"
+                            style="">
+                            <span class="material-symbols-outlined text-[#3B82F6] text-xl" style="">info</span>
+                            <span class="text-sm" style="">Digital agency - No walk-ins. Meetings by appointment
+                                only.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                <p class="" style="">© 2024 Klicks To Clients. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-slate-300 transition-colors" href="#" style="">Privacy Policy</a>
+                    <a class="hover:text-slate-300 transition-colors" href="#" style="">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroImg = document.getElementById('hero-sequence-img');
+            if (!heroImg) return;
+
+            const frameCount = 50;
+            const currentFrame = index => `KlicksHeroVid_001/KlicksHeroVid_${String(index).padStart(3, '0')}.jpg`;
+
+            // Preload all images into memory
+            const images = [];
+            for (let i = 0; i < frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrame(i);
+                images.push(img);
+            }
+
+            let targetFrame = 0;
+            let currentFrameIndex = 0;
+            let lastDrawnFrame = -1;
+            const pixelsPerFrame = 11;
+
+            function updateFrame() {
+                // Ease toward target
+                currentFrameIndex += (targetFrame - currentFrameIndex) * 0.15;
+                const frameIndex = Math.round(currentFrameIndex);
+                const clampedIndex = Math.max(0, Math.min(frameIndex, frameCount - 1));
+
+                // Only swap the src if the frame actually changed
+                if (clampedIndex !== lastDrawnFrame && images[clampedIndex] && images[clampedIndex].complete) {
+                    heroImg.src = images[clampedIndex].src;
+                    lastDrawnFrame = clampedIndex;
+                }
+
+                requestAnimationFrame(updateFrame);
+            }
+
+            requestAnimationFrame(updateFrame);
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 0) {
+                    targetFrame = window.scrollY / pixelsPerFrame;
+                    if (targetFrame >= frameCount) {
+                        targetFrame = frameCount - 1;
+                    }
+                } else {
+                    targetFrame = 0;
+                }
+            });
+
+            // Intersection Observer for Scroll Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('obs-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.2, // Require 20% of the element to be visible
+                rootMargin: "0px 0px -15% 0px" // Require the element to be above the bottom 15% of the screen
+            });
+
+            document.querySelectorAll('.obs-animate').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
