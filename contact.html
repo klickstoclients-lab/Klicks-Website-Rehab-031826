@@ -4,7 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Contact Us | Klicks To Clients</title>
+    <title>Contact Klicks To Clients | Marketing Agency | Book Your Strategy Call</title>
+    <meta name="description" content="Ready to generate more leads, referrals, and repeat business? Book a free strategy call and see how Klicks To Clients can help you scale.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MarketingAgency",
+        "name": "Klicks To Clients",
+        "description": "Ready to generate more leads, referrals, and repeat business? Book a free strategy call.",
+        "url": "https://www.klickstoclients.com/contact.html",
+        "sameAs": [
+            "https://www.youtube.com/@jeffjordan_klickstoclients",
+            "https://www.linkedin.com/company/klicks-to-clients/",
+            "https://www.facebook.com/klickstoclients"
+        ]
+    }
+    </script>
     <link rel="icon" type="image/png" href="favicon.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
@@ -330,6 +345,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Trigger Hero visibility immediately
+            document.querySelectorAll('section:first-of-type .obs-animate').forEach((el) => {
+                el.classList.add('obs-visible');
+            });
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -343,7 +363,9 @@
             });
 
             document.querySelectorAll('.obs-animate').forEach((el) => {
-                observer.observe(el);
+                if (!el.classList.contains('obs-visible')) {
+                    observer.observe(el);
+                }
             });
 
             // Trigger form expand animation after 1s

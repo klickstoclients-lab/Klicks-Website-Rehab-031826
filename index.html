@@ -4,8 +4,84 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Klicks To Clients - Premium Growth Agency Home</title>
+    <title>Klicks To Clients | Marketing Agency | Get More Leads, Referrals & Repeat Business</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="We help local service businesses generate more leads, referrals, and repeat customers by connecting websites, SEO, reviews, and follow-up into one system that drives real revenue.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MarketingAgency",
+        "name": "Klicks To Clients",
+        "url": "https://www.klickstoclients.com",
+        "logo": "https://www.klickstoclients.com/KlicksNewSitePoint.png",
+        "description": "Marketing agency helping local service businesses generate more leads, referrals, and repeat customers by connecting websites, SEO, reviews, and follow-up into one system that drives real revenue.",
+        "sameAs": [
+            "https://www.youtube.com/@jeffjordan_klickstoclients",
+            "https://www.linkedin.com/company/klicks-to-clients/",
+            "https://www.facebook.com/klickstoclients"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tampa Bay",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-813-444-8804",
+            "contactType": "customer service",
+            "email": "mailto:klickstoclients@gmail.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does this work for all small businesses?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes — our systems are designed specifically for local, service-based businesses. Whether you're a roofing company, contractor, or home service provider, the fundamentals are the same: visibility, trust, and consistent follow-up."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I don't know what my business needs?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "That's exactly what we help you figure out. Most businesses don't need more services — they need the right system. We look at where you're losing opportunities right now and focus on what will bring in the fastest results."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I get started?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The first step is booking a free Strategy Call. We'll look at your current setup, show you where you're missing opportunities, and walk you through exactly how our system can help you scale."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How quickly can I expect results?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on where you're starting, but most businesses begin seeing movement within the first 30–60 days. Our focus is on creating steady, reliable growth — not short-term spikes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many leads can I expect?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It depends on your market, competition, and where you're starting. Instead of inflated promises, we focus on building a system that increases your opportunities consistently across leads, referrals, and repeat business."
+                }
+            }
+        ]
+    }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
         rel="stylesheet">
@@ -910,7 +986,12 @@
                 }
             });
 
-            // Intersection Observer for Scroll Animations
+            // Trigger Hero visibility immediately
+            document.querySelectorAll('section:first-of-type .obs-animate').forEach((el) => {
+                el.classList.add('obs-visible');
+            });
+
+            // Intersection Observer for subsequent Scroll Animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -919,12 +1000,15 @@
                     }
                 });
             }, {
-                threshold: 0.2, // Require 20% of the element to be visible
-                rootMargin: "0px 0px -15% 0px" // Require the element to be above the bottom 15% of the screen
+                threshold: 0.1, // Require 10% of the element to be visible
+                rootMargin: "0px 0px -10% 0px" // Trigger slightly before the element enters the viewport
             });
 
             document.querySelectorAll('.obs-animate').forEach((el) => {
-                observer.observe(el);
+                // If it's already visible (hero), don't re-observe
+                if (!el.classList.contains('obs-visible')) {
+                    observer.observe(el);
+                }
             });
         });
     </script>
