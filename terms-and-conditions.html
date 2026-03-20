@@ -77,17 +77,25 @@
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="about.html">About</a>
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="index.html#faq">FAQ</a>
             </nav>
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3 md:gap-6">
                 <a href="tel:+18134448804" class="hidden lg:flex items-center gap-2 text-slate-300 text-sm font-medium hover:text-[#2ED8C3] transition-colors">
                     <span class="material-symbols-outlined text-[#2ED8C3] text-lg">call</span>
                     <span>813-444-8804</span>
                 </a>
                 <a href="contact.html"
-                    class="bg-[#C9F84A] text-[#08131F] px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-colors shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block text-center">
-                    Book Strategy Call
+                    class="bg-[#C9F84A] text-[#08131F] px-4 sm:px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-colors shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block text-center">
+                    <span class="hidden sm:inline">Book Strategy Call</span>
+                    <span class="sm:hidden flex items-center gap-1">
+                        <span class="material-symbols-outlined text-lg">call</span>
+                        Call
+                    </span>
                 </a>
+                <button id="mobile-menu-toggle" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
             </div>
         </div>
+
     </header>
 
     <main class="flex-grow">
@@ -304,6 +312,37 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Logic
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const body = document.body;
+
+            if (toggleBtn && mobileMenu && closeBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    // Force reflow
+                    mobileMenu.offsetHeight;
+                    mobileMenu.classList.remove('translate-x-full');
+                    body.style.overflow = 'hidden';
+                });
+
+                const closeMenu = () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    body.style.overflow = '';
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close menu on link click
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
             // Trigger Hero visibility immediately
             document.querySelectorAll('section:first-of-type .obs-animate').forEach((el) => {
                 el.classList.add('obs-visible');
@@ -328,6 +367,58 @@
             });
         });
     </script>
+    <!-- Mobile Menu Overlay - Placed at root level for absolute coverage and z-index priority -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[9999] bg-[#060D15] flex flex-col p-8 transition-all duration-300 transform translate-x-full overflow-y-auto">
+        <!-- Subtle decorative gradients for a premium feel without reducing legibility -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(46,216,195,0.1)_0%,transparent_50%)] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(201,248,74,0.08)_0%,transparent_50%)] pointer-events-none"></div>
+        
+        <div class="relative z-10 flex items-center justify-between mb-12">
+            <div class="flex items-center gap-3">
+                <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain">
+                <span class="font-display font-bold text-xl tracking-tight text-white">Klicks To Clients</span>
+            </div>
+            <button id="mobile-menu-close" class="text-white p-2 focus:outline-none hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        
+        <nav class="relative z-10 flex flex-col gap-6">
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="index.html">
+                <span>Home</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="contact.html">
+                <span>Contact</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="about.html">
+                <span>About</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="index.html#faq">
+                <span>FAQ</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+        </nav>
+        
+        <div class="relative z-10 mt-auto pt-10 border-t border-white/10 text-white">
+            <a href="tel:+18134448804" class="flex items-center gap-4 text-white text-xl font-display font-bold mb-8 group">
+                <span class="w-12 h-12 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center group-hover:bg-[#2ED8C3]/20 transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3] text-2xl">call</span>
+                </span>
+                <span class="group-hover:text-[#2ED8C3] transition-colors">813-444-8804</span>
+            </a>
+            <a href="contact.html" class="w-full bg-[#C9F84A] text-[#08131F] py-5 rounded-xl text-center font-display font-black text-xl shadow-[0_10px_30px_rgba(201,248,74,0.2)] hover:shadow-[0_15px_40px_rgba(201,248,74,0.3)] hover:-translate-y-0.5 transition-all block flex items-center justify-center gap-2">
+                <span class="hidden sm:inline">Book a Strategy Call</span>
+                <span class="sm:hidden flex items-center gap-1">
+                    <span class="material-symbols-outlined">call</span>
+                    Call
+                </span>
+            </a>
+        </div>
+    </div>
 </body>
+
 
 </html>

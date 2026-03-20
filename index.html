@@ -272,31 +272,36 @@
     <header class="sticky top-0 z-50 bg-[#08131F]/70 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
-                <span class="font-display font-bold text-xl tracking-tight text-white" style="">Klicks To Clients</span>
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain group-hover:drop-shadow-[0_0_15px_rgba(46,216,195,0.4)] transition-all">
+                    <span class="font-display font-bold text-xl tracking-tight text-white group-hover:text-slate-200 transition-colors">Klicks To Clients</span>
+                </a>
             </div>
             <nav class="hidden md:flex items-center gap-10">
-                <a class="text-sm font-medium text-white transition-colors border-b border-[#2ED8C3] pb-1" href="#top"
-                    style="">Home</a>
-                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="contact.html"
-                    style="">Contact</a>
-                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="about.html"
-                    style="">About</a>
-                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#faq"
-                    style="">FAQ</a>
+                <a class="text-sm font-medium text-white transition-colors border-b border-[#2ED8C3] pb-1" href="#top">Home</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="contact.html">Contact</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#faq">FAQ</a>
             </nav>
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3 md:gap-6">
                 <a href="tel:+18134448804" class="hidden lg:flex items-center gap-2 text-slate-300 text-sm font-medium hover:text-[#2ED8C3] transition-colors">
-                    <span class="material-symbols-outlined text-[#2ED8C3] text-lg" style="">call</span>
-                    <span class="" style="">813-444-8804</span>
+                    <span class="material-symbols-outlined text-[#2ED8C3] text-lg">call</span>
+                    <span>813-444-8804</span>
                 </a>
                 <a href="contact.html"
-                    class="bg-[#C9F84A] text-[#08131F] px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-colors shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block text-center"
-                    style="">
-                    Book Strategy Call
+                    class="bg-[#C9F84A] text-[#08131F] px-4 sm:px-7 py-3 rounded-lg font-display font-bold text-sm tracking-wide hover:bg-[#b5df42] transition-all shadow-[0_0_20px_rgba(201,248,74,0.2)] hover:shadow-[0_0_30px_rgba(201,248,74,0.4)] block text-center">
+                    <span class="hidden sm:inline">Book Strategy Call</span>
+                    <span class="sm:hidden flex items-center gap-1">
+                        <span class="material-symbols-outlined text-lg">call</span>
+                        Call
+                    </span>
                 </a>
+                <button id="mobile-menu-toggle" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
             </div>
         </div>
+
     </header>
     <main class="flex-grow">
         <section class="relative pt-20 pb-32 overflow-hidden bg-[#08131F]">
@@ -311,31 +316,35 @@
                 class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-24 items-center relative z-10">
                 <div class="flex flex-col gap-8">
                     <div class="inline-flex items-center gap-2 text-xs text-slate-300 font-semibold tracking-widest uppercase bg-white/5 border border-white/10 px-4 py-2 rounded-full w-fit backdrop-blur-sm"
-                        style="">
-                        <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">location_on</span>
+                       >
+                        <span class="material-symbols-outlined text-[#2ED8C3] text-sm">location_on</span>
                         Based in Greater Tampa Bay • Serving Clients Nationwide
                     </div>
                     <h1 class="font-display text-5xl lg:text-7xl font-black leading-[1.05] tracking-tighter text-white drop-shadow-sm"
-                        style="">
+                       >
                         Turn Local Visibility Into <span
                             class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400"
-                            style="">Real Revenue</span>
+                           >Real Revenue</span>
                     </h1>
-                    <p class="text-xl text-slate-300 leading-relaxed font-body max-w-xl font-medium" style="">
+                    <p class="text-xl text-slate-300 leading-relaxed font-body max-w-xl font-medium">
                         We build systems that increase visibility, trust, and conversions — so your business generates consistent inbound opportunities.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-5 pt-4">
                         <a href="contact.html"
                             class="bg-[#C9F84A] text-[#08131F] px-8 py-4 rounded-xl font-display font-bold text-lg hover:bg-[#b5df42] transition-all shadow-[0_0_30px_rgba(201,248,74,0.25)] hover:shadow-[0_0_40px_rgba(201,248,74,0.4)] flex items-center justify-center gap-2 group"
-                            style="">
-                            Book a Strategy Call
+                           >
+                            <span class="hidden sm:inline">Book a Strategy Call</span>
+                            <span class="sm:hidden flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[#08131F]">call</span>
+                                Call
+                            </span>
                             <span
-                                class="material-symbols-outlined text-[#08131F] group-hover:translate-x-1 transition-transform"
-                                style="">arrow_forward</span>
+                                class="material-symbols-outlined text-[#08131F] group-hover:translate-x-1 transition-transform hidden sm:inline"
+                               >arrow_forward</span>
                         </a>
                         <a href="#how-it-works"
                             class="px-8 py-4 rounded-xl font-display font-bold text-lg border border-[#2ED8C3]/30 text-white hover:bg-[#2ED8C3]/10 hover:border-[#2ED8C3]/60 transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
-                            style="">
+                           >
                             See How It Works
                         </a>
                     </div>
@@ -352,12 +361,15 @@
                                 4.9</div>
                         </div>
                         <div class="text-sm font-medium text-slate-400">
-                            <div class="flex text-[#C9F84A] text-sm">
-                                <span class="material-symbols-outlined text-base">star</span>
-                                <span class="material-symbols-outlined text-base">star</span>
-                                <span class="material-symbols-outlined text-base">star</span>
-                                <span class="material-symbols-outlined text-base">star</span>
-                                <span class="material-symbols-outlined text-base">star</span>
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="flex text-[#C9F84A] text-sm">
+                                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                                </div>
+                                <span class="text-white font-bold">4.9/5</span>
                             </div>
                             <span class="text-white">Trusted by</span> Local Businesses Serious about Growth
                         </div>
@@ -374,20 +386,20 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div
                     class="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-sm font-display font-medium text-slate-300 obs-animate obs-squeeze">
-                    <div class="flex items-center gap-3" style=""><span
-                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span>
+                    <div class="flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span>
                         Websites That Convert</div>
-                    <div class="flex items-center gap-3" style=""><span
-                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span> Local
+                    <div class="flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span> Local
                         SEO Mastery</div>
-                    <div class="flex items-center gap-3" style=""><span
-                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span>
+                    <div class="flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span>
                         Reputation Management</div>
-                    <div class="flex items-center gap-3" style=""><span
-                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span> Google
+                    <div class="flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span> Google
                         Business Optimization</div>
-                    <div class="flex items-center gap-3" style=""><span
-                            class="material-symbols-outlined text-[#2ED8C3] text-xl" style="">check_circle</span> AI
+                    <div class="flex items-center gap-3"><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span> AI
                         Automation</div>
                 </div>
             </div>
@@ -412,7 +424,7 @@
                             </div>
                             <div class="flex-grow max-w-md mx-auto bg-white/5 rounded-full h-5 flex items-center px-3">
                                 <span class="text-[10px] text-slate-500 font-mono tracking-wider"
-                                    style="">your-premium-business.com</span>
+                                   >your-premium-business.com</span>
                             </div>
                         </div>
                         <div class="absolute inset-0 top-10 overflow-hidden">
@@ -435,27 +447,27 @@
                                     <div class="max-w-xs mx-auto space-y-4">
                                         <div class="text-center space-y-1 mb-6">
                                             <div class="text-xs font-bold text-[#2ED8C3] tracking-widest uppercase"
-                                                style="">Get A Quote</div>
-                                            <div class="text-lg font-display font-bold text-white" style="">Start Your
+                                               >Get A Quote</div>
+                                            <div class="text-lg font-display font-bold text-white">Start Your
                                                 Project</div>
                                         </div>
                                         <div class="space-y-3">
                                             <div
                                                 class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-4 relative overflow-hidden">
                                                 <span class="text-xs text-slate-400 font-medium typing-effect"
-                                                    style="">John Doe</span>
+                                                   >John Doe</span>
                                                 <div class="w-[1px] h-4 bg-[#2ED8C3] ml-0.5 animate-blink"></div>
                                             </div>
                                             <div
                                                 class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-4">
-                                                <span class="text-xs text-slate-600" style="">Email Address</span>
+                                                <span class="text-xs text-slate-600">Email Address</span>
                                             </div>
                                             <div class="h-24 bg-[#08131F] border border-white/10 rounded-lg p-4">
-                                                <span class="text-xs text-slate-600" style="">Message...</span>
+                                                <span class="text-xs text-slate-600">Message...</span>
                                             </div>
                                             <div
                                                 class="h-12 bg-[#C9F84A] rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(201,248,74,0.2)]">
-                                                <span class="text-sm font-bold text-[#08131F]" style="">Submit
+                                                <span class="text-sm font-bold text-[#08131F]">Submit
                                                     Inquiry</span>
                                             </div>
                                         </div>
@@ -470,12 +482,12 @@
                         <div
                             class="absolute bottom-6 left-6 bg-[#0B1A2A]/80 backdrop-blur-xl border border-[#2ED8C3]/30 p-3 rounded-xl shadow-2xl z-30 flex items-center gap-3 transition-transform hover:scale-105">
                             <div class="w-8 h-8 rounded-full bg-[#2ED8C3]/20 flex items-center justify-center">
-                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">bolt</span>
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm">bolt</span>
                             </div>
                             <div>
-                                <div class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter" style="">
+                                <div class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">
                                     Conversion Rate</div>
-                                <div class="text-white font-display font-black text-lg" style="">+142%</div>
+                                <div class="text-white font-display font-black text-lg">+142%</div>
                             </div>
                         </div>
                     </div>
@@ -484,57 +496,57 @@
                         <div class="flex items-center gap-4">
                             <div
                                 class="w-12 h-12 rounded-full bg-[#C9F84A]/10 flex items-center justify-center border border-[#C9F84A]/20">
-                                <span class="material-symbols-outlined text-[#C9F84A]" style="">speed</span>
+                                <span class="material-symbols-outlined text-[#C9F84A]">speed</span>
                             </div>
                             <div>
-                                <div class="text-xs text-slate-400 font-medium tracking-wide uppercase" style="">Page
+                                <div class="text-xs text-slate-400 font-medium tracking-wide uppercase">Page
                                     Speed</div>
-                                <div class="font-display font-black text-2xl text-white" style="">99<span
-                                        class="text-sm text-slate-500 font-normal" style="">/100</span></div>
+                                <div class="font-display font-black text-2xl text-white">99<span
+                                        class="text-sm text-slate-500 font-normal">/100</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col gap-6 order-1 md:order-2">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#2ED8C3] w-fit text-sm font-semibold tracking-wide backdrop-blur-sm"
-                        style="">
-                        <span class="material-symbols-outlined text-sm" style="">desktop_windows</span>
+                       >
+                        <span class="material-symbols-outlined text-sm">desktop_windows</span>
                         Core System 01
                     </div>
-                    <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white leading-tight" style="">
+                    <h2 class="font-display text-4xl font-black text-slate-900 dark:text-white leading-tight">
                         Websites Built to Convert Traffic into Revenue
                     </h2>
-                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed" style="">
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
                         Your website is the center of your local growth engine. We don't just build digital brochures;
                         we engineer high-performance platforms designed to capture leads, build trust, and rank at the
                         top of local searches.
                     </p>
                     <ul class="flex flex-col gap-5 mt-2">
                         <li class="flex items-start gap-4 bg-[#0B1A2A]/50 p-4 rounded-xl border border-white/5"
-                            style="">
+                           >
                             <div
                                 class="w-8 h-8 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center shrink-0 mt-0.5">
-                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">task_alt</span>
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm">task_alt</span>
                             </div>
                             <div>
                                 <strong class="text-slate-900 dark:text-white block font-display text-lg mb-1">Custom,
                                     Conversion-Focused Design</strong>
                                 <span class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed block"
-                                    style="">Tailored completely to your brand identity, guiding visitors intuitively to
+                                   >Tailored completely to your brand identity, guiding visitors intuitively to
                                     take action.</span>
                             </div>
                         </li>
                         <li class="flex items-start gap-4 bg-[#0B1A2A]/50 p-4 rounded-xl border border-white/5"
-                            style="">
+                           >
                             <div
                                 class="w-8 h-8 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center shrink-0 mt-0.5">
-                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm" style="">task_alt</span>
+                                <span class="material-symbols-outlined text-[#2ED8C3] text-sm">task_alt</span>
                             </div>
                             <div>
                                 <strong class="text-slate-900 dark:text-white block font-display text-lg mb-1">Flawless
                                     Mobile Optimization</strong>
                                 <span class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed block"
-                                    style="">Over 60% of local searches happen on mobile. Your site will look and
+                                   >Over 60% of local searches happen on mobile. Your site will look and
                                     perform perfectly on any device.</span>
                             </div>
                         </li>
@@ -559,10 +571,10 @@
             </div>
             <div class="max-w-7xl mx-auto px-6 relative z-10">
                 <div class="text-center mb-20">
-                    <h2 class="font-display text-4xl md:text-5xl font-black text-white leading-tight mb-6" style="">
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-white leading-tight mb-6">
                         Why the Right System Changes Everything
                     </h2>
-                    <p class="text-xl text-[#9FB1C3] max-w-3xl mx-auto font-medium leading-relaxed font-body" style="">
+                    <p class="text-xl text-[#9FB1C3] max-w-3xl mx-auto font-medium leading-relaxed font-body">
                         Stronger visibility, better trust, and more booked opportunities all work together to support
                         real business growth.
                     </p>
@@ -584,7 +596,7 @@
                                     class="material-symbols-outlined text-[#2ED8C3] text-4xl transition-all duration-500 group-hover:scale-110"
                                     style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 300;">location_on</span>
                             </div>
-                            <h3 class="font-display font-bold text-2xl text-white mb-4" style="">Stronger Visibility
+                            <h3 class="font-display font-bold text-2xl text-white mb-4">Stronger Visibility
                             </h3>
                             <p class="text-[#9FB1C3] text-lg font-body leading-relaxed" style="">
                                 Get found more often by the people already looking for your services.
@@ -986,6 +998,37 @@
                 }
             });
 
+            // Mobile Menu Logic
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const body = document.body;
+
+            if (toggleBtn && mobileMenu && closeBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('hidden');
+                    // Force reflow
+                    mobileMenu.offsetHeight;
+                    mobileMenu.classList.remove('translate-x-full');
+                    body.style.overflow = 'hidden';
+                });
+
+                const closeMenu = () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    body.style.overflow = '';
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close menu on link click
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
             // Trigger Hero visibility immediately
             document.querySelectorAll('section:first-of-type .obs-animate').forEach((el) => {
                 el.classList.add('obs-visible');
@@ -1012,6 +1055,58 @@
             });
         });
     </script>
+    <!-- Mobile Menu Overlay - Placed at root level for absolute coverage and z-index priority -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[9999] bg-[#060D15] flex flex-col p-8 transition-all duration-300 transform translate-x-full overflow-y-auto">
+        <!-- Subtle decorative gradients for a premium feel without reducing legibility -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(46,216,195,0.1)_0%,transparent_50%)] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(201,248,74,0.08)_0%,transparent_50%)] pointer-events-none"></div>
+        
+        <div class="relative z-10 flex items-center justify-between mb-12">
+            <div class="flex items-center gap-3">
+                <img src="KlicksNewSitePoint.png" alt="Klicks To Clients Logo Icon" class="h-10 w-auto object-contain">
+                <span class="font-display font-bold text-xl tracking-tight text-white">Klicks To Clients</span>
+            </div>
+            <button id="mobile-menu-close" class="text-white p-2 focus:outline-none hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        
+        <nav class="relative z-10 flex flex-col gap-6">
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="#top">
+                <span>Home</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="contact.html">
+                <span>Contact</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="about.html">
+                <span>About</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="#faq">
+                <span>FAQ</span>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+        </nav>
+        
+        <div class="relative z-10 mt-auto pt-10 border-t border-white/10 text-white">
+            <a href="tel:+18134448804" class="flex items-center gap-4 text-white text-xl font-display font-bold mb-8 group">
+                <span class="w-12 h-12 rounded-full bg-[#2ED8C3]/10 flex items-center justify-center group-hover:bg-[#2ED8C3]/20 transition-colors">
+                    <span class="material-symbols-outlined text-[#2ED8C3] text-2xl">call</span>
+                </span>
+                <span class="group-hover:text-[#2ED8C3] transition-colors">813-444-8804</span>
+            </a>
+            <a href="contact.html" class="w-full bg-[#C9F84A] text-[#08131F] py-5 rounded-xl text-center font-display font-black text-xl shadow-[0_10px_30px_rgba(201,248,74,0.2)] hover:shadow-[0_15px_40px_rgba(201,248,74,0.3)] hover:-translate-y-0.5 transition-all block flex items-center justify-center gap-2">
+                <span class="hidden sm:inline">Book a Strategy Call</span>
+                <span class="sm:hidden flex items-center gap-1">
+                    <span class="material-symbols-outlined">call</span>
+                    Call
+                </span>
+            </a>
+        </div>
+    </div>
 </body>
+
 
 </html>
