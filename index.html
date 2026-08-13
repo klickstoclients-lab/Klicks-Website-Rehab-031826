@@ -2,6 +2,7 @@
 <html class="dark" lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
@@ -152,7 +153,7 @@
                         },
                         'scroll-slow': {
                             '0%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20%)' },
+                            '50%': { transform: 'translateY(-25px)' },
                             '100%': { transform: 'translateY(0)' },
                         }
                     }
@@ -305,7 +306,8 @@
                 </a>
             </div>
             <nav class="hidden md:flex items-center gap-10">
-                <a class="text-sm font-medium text-white transition-colors border-b border-[#2ED8C3] pb-1" href="#top">Home</a>
+                <a class="text-sm font-medium text-white border-b border-[#2ED8C3] pb-1 transition-colors" href="#top">Home</a>
+                <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="our-system.html">Our System</a>
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="contact.html">Contact</a>
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="about.html">About</a>
                 <a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#faq">FAQ</a>
@@ -377,15 +379,10 @@
                     </div>
                     <div class="flex items-center gap-4 pt-6">
                         <div class="flex -space-x-3">
-                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F]"
-                                src="avatar1.png?v=2">
-                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F]"
-                                src="avatar2.png?v=2">
-                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F]"
-                                src="avatar3.png?v=2">
-                            <div
-                                class="w-10 h-10 rounded-full border-2 border-[#08131F] bg-[#0B1A2A] flex items-center justify-center text-xs font-bold text-white">
-                                4.9</div>
+                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F] object-cover" src="avatar1.png">
+                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F] object-cover" src="avatar2.png">
+                            <img alt="Client Avatar" class="w-10 h-10 rounded-full border-2 border-[#08131F] object-cover" src="avatar3.png">
+                            <div class="w-10 h-10 rounded-full border-2 border-[#08131F] bg-[#0B1A2A] flex items-center justify-center text-xs font-bold text-white shadow-sm">4.9</div>
                         </div>
                         <div class="text-sm font-medium text-slate-400">
                             <div class="flex items-center gap-2 mb-1">
@@ -398,7 +395,7 @@
                                 </div>
                                 <span class="text-white font-bold">4.9/5</span>
                             </div>
-                            <span class="text-white">Trusted by</span> Local Businesses Serious about Growth
+                            <span class="text-white font-bold">Trusted by</span> <span class="text-slate-300">Local Businesses Serious about Growth</span>
                         </div>
                     </div>
                 </div>
@@ -455,54 +452,39 @@
                             </div>
                         </div>
                         <div class="absolute inset-0 top-10 overflow-hidden">
-                            <div class="animate-scroll-slow flex flex-col">
-                                <div
-                                    class="min-h-[300px] p-8 flex flex-col gap-4 bg-gradient-to-b from-[#0B1A2A] to-transparent">
-                                    <div class="w-24 h-6 bg-white/5 rounded"></div>
-                                    <div class="space-y-2">
-                                        <div class="h-8 bg-white/10 rounded-lg w-3/4"></div>
-                                        <div class="h-8 bg-white/10 rounded-lg w-1/2"></div>
-                                    </div>
-                                    <div class="space-y-2">
-                                        <div class="h-3 bg-slate-700 rounded w-full"></div>
-                                        <div class="h-3 bg-slate-700 rounded w-5/6"></div>
-                                    </div>
-                                    <div class="w-40 h-10 bg-[#C9F84A]/20 border border-[#C9F84A]/30 rounded-lg mt-4">
-                                    </div>
-                                </div>
-                                <div class="p-8 bg-white/[0.02] border-y border-white/5 relative">
-                                    <div class="max-w-xs mx-auto space-y-4">
-                                        <div class="text-center space-y-1 mb-6">
-                                            <div class="text-xs font-bold text-[#2ED8C3] tracking-widest uppercase"
-                                               >Get A Quote</div>
-                                            <div class="text-lg font-display font-bold text-white">Start Your
-                                                Project</div>
+                            <div id="mockup-scroll-inner" class="flex flex-col pt-3 transition-transform duration-700 ease-in-out">
+                                <div class="px-6 py-4 bg-white/[0.02] relative">
+                                    <div class="max-w-xs mx-auto space-y-3">
+                                        <div class="text-center space-y-0.5 mb-3">
+                                            <div class="text-[10px] sm:text-xs font-bold text-[#2ED8C3] tracking-widest uppercase">Get A Quote</div>
+                                            <div class="text-base sm:text-lg font-display font-bold text-white">Start Your Project</div>
                                         </div>
-                                        <div class="space-y-3">
-                                            <div
-                                                class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-4 relative overflow-hidden">
-                                                <span class="text-xs text-slate-400 font-medium typing-effect"
-                                                   >John Doe</span>
-                                                <div class="w-[1px] h-4 bg-[#2ED8C3] ml-0.5 animate-blink"></div>
+                                        <div class="space-y-2.5">
+                                            <!-- FIELD 1: Name -->
+                                            <div id="mockup-field-1" class="h-10 bg-[#08131F] border-2 border-[#2ED8C3]/80 rounded-lg flex items-center px-3.5 relative overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(46,216,195,0.25)]">
+                                                <span id="mockup-name-text" class="text-xs text-white font-semibold"></span>
+                                                <div id="mockup-cursor-1" class="w-[2px] h-4 bg-[#2ED8C3] ml-0.5 animate-blink"></div>
                                             </div>
-                                            <div
-                                                class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-4">
-                                                <span class="text-xs text-slate-600">Email Address</span>
+                                            <!-- FIELD 2: Email -->
+                                            <div id="mockup-field-2" class="h-10 bg-[#08131F] border border-white/10 rounded-lg flex items-center px-3.5 relative overflow-hidden transition-all duration-300">
+                                                <span id="mockup-email-text" class="text-xs text-slate-500">Email Address</span>
+                                                <div id="mockup-cursor-2" class="w-[2px] h-4 bg-[#2ED8C3] ml-0.5 animate-blink hidden"></div>
                                             </div>
-                                            <div class="h-24 bg-[#08131F] border border-white/10 rounded-lg p-4">
-                                                <span class="text-xs text-slate-600">Message...</span>
+                                            <!-- FIELD 3: Message -->
+                                            <div id="mockup-field-3" class="h-14 bg-[#08131F] border border-white/10 rounded-lg p-3 relative overflow-hidden transition-all duration-300">
+                                                <span id="mockup-msg-text" class="text-xs text-slate-500">Message...</span>
+                                                <div id="mockup-cursor-3" class="w-[2px] h-4 bg-[#2ED8C3] inline-block ml-0.5 animate-blink hidden"></div>
                                             </div>
-                                            <div
-                                                class="h-12 bg-[#C9F84A] rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(201,248,74,0.2)]">
-                                                <span class="text-sm font-bold text-[#08131F]">Submit
-                                                    Inquiry</span>
+                                            <!-- SUBMIT BUTTON -->
+                                            <div id="mockup-submit" class="h-10 bg-[#C9F84A] rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(201,248,74,0.25)] transition-all duration-300">
+                                                <span id="mockup-submit-text" class="text-xs sm:text-sm font-bold text-[#08131F]">Submit Inquiry</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="min-h-[200px] p-8 grid grid-cols-2 gap-4">
-                                    <div class="aspect-square bg-white/5 rounded-xl border border-white/5"></div>
-                                    <div class="aspect-square bg-white/5 rounded-xl border border-white/5"></div>
+                                <div class="p-6 grid grid-cols-2 gap-3 opacity-60">
+                                    <div class="h-20 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center text-xs text-slate-500 font-mono">Recent Projects</div>
+                                    <div class="h-20 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center text-xs text-slate-500 font-mono">5-Star Reviews</div>
                                 </div>
                             </div>
                         </div>
@@ -938,14 +920,13 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide" style="">Quick Links</h3>
+                    <h3 class="text-white font-display font-bold text-lg mb-6 tracking-wide">Quick Links</h3>
                     <ul class="flex flex-col gap-4 text-slate-400 font-medium">
-                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="#top"
-                                style="">Home</a></li>
-                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="contact.html" style="">Contact</a></li>
-                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="about.html" style="">About</a></li>
-                        <li class="" style=""><a class="hover:text-[#2ED8C3] transition-colors" href="#faq"
-                                style="">FAQ</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors text-white" href="#top">Home</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors " href="our-system.html">Our System</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors " href="contact.html">Contact</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors " href="about.html">About</a></li>
+                        <li><a class="hover:text-[#2ED8C3] transition-colors" href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
@@ -967,7 +948,7 @@
             </div>
             <div
                 class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
-                <p class="" style="">© 2026 Klicks To Clients. All rights reserved.</p>
+                <p>&copy; 2026 Klicks To Clients. All rights reserved.</p>
                 <div class="flex gap-8">
                     <a class="hover:text-slate-300 transition-colors" href="privacy-policy.html" style="">Privacy Policy</a>
                     <a class="hover:text-slate-300 transition-colors" href="terms-and-conditions.html" style="">Terms and Conditions</a>
@@ -1099,8 +1080,12 @@
         </div>
         
         <nav class="relative z-10 flex flex-col gap-6">
-            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="#top">
+            <a class="text-3xl font-display font-bold text-[#C9F84A] hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="#top">
                 <span>Home</span>
+                <span class="material-symbols-outlined opacity-100 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
+            </a>
+            <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="our-system.html">
+                <span>Our System</span>
                 <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-[#C9F84A]">-&gt;</span>
             </a>
             <a class="text-3xl font-display font-bold text-white hover:text-[#C9F84A] transition-all hover:translate-x-2 flex items-center justify-between group" href="contact.html">
@@ -1133,6 +1118,115 @@
             </a>
         </div>
     </div>
+
+    <!-- Sequential Multi-Field Typing & Smooth Scrolling Animation for Website Mockup -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nameEl = document.getElementById('mockup-name-text');
+            const emailEl = document.getElementById('mockup-email-text');
+            const msgEl = document.getElementById('mockup-msg-text');
+            const cursor1 = document.getElementById('mockup-cursor-1');
+            const cursor2 = document.getElementById('mockup-cursor-2');
+            const cursor3 = document.getElementById('mockup-cursor-3');
+            const field1 = document.getElementById('mockup-field-1');
+            const field2 = document.getElementById('mockup-field-2');
+            const field3 = document.getElementById('mockup-field-3');
+            const scrollInner = document.getElementById('mockup-scroll-inner');
+            const submitBtn = document.getElementById('mockup-submit');
+            const submitText = document.getElementById('mockup-submit-text');
+
+            if (!nameEl || !emailEl || !scrollInner) return;
+
+            const nameText = "John Doe";
+            const emailText = "john.doe@gmail.com";
+            const msgText = "Need a roof replacement quote...";
+
+            function typeWriter(text, element, speed, callback) {
+                let i = 0;
+                element.textContent = "";
+                element.classList.remove('text-slate-500');
+                element.classList.add('text-white', 'font-semibold');
+                
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else if (callback) {
+                        setTimeout(callback, 350);
+                    }
+                }
+                type();
+            }
+
+            function runFormAnimationSequence() {
+                // Reset state
+                nameEl.textContent = "";
+                emailEl.textContent = "Email Address";
+                emailEl.classList.remove('text-white', 'font-semibold');
+                emailEl.classList.add('text-slate-500');
+                msgEl.textContent = "Message...";
+                msgEl.classList.remove('text-white', 'font-semibold');
+                msgEl.classList.add('text-slate-500');
+                
+                cursor1?.classList.remove('hidden');
+                cursor2?.classList.add('hidden');
+                cursor3?.classList.add('hidden');
+                
+                field1?.classList.add('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                field2?.classList.remove('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                field3?.classList.remove('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+
+                scrollInner.style.transform = "translateY(0px)";
+
+                // Step 1: Type Name in Field 1
+                setTimeout(() => {
+                    typeWriter(nameText, nameEl, 90, () => {
+                        // Step 2: Shift to Field 2 (Email) & scroll down 55px
+                        cursor1?.classList.add('hidden');
+                        cursor2?.classList.remove('hidden');
+                        field1?.classList.remove('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                        field2?.classList.add('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                        scrollInner.style.transform = "translateY(-55px)";
+
+                        setTimeout(() => {
+                            typeWriter(emailText, emailEl, 70, () => {
+                                // Step 3: Shift to Field 3 (Message) & scroll down 110px
+                                cursor2?.classList.add('hidden');
+                                cursor3?.classList.remove('hidden');
+                                field2?.classList.remove('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                                field3?.classList.add('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                                scrollInner.style.transform = "translateY(-110px)";
+
+                                setTimeout(() => {
+                                    typeWriter(msgText, msgEl, 55, () => {
+                                        // Step 4: Submit Button highlight & success state
+                                        cursor3?.classList.add('hidden');
+                                        field3?.classList.remove('border-2', 'border-[#2ED8C3]', 'shadow-[0_0_15px_rgba(46,216,195,0.3)]');
+                                        if (submitBtn) {
+                                            submitBtn.classList.add('scale-105', 'bg-[#2ED8C3]');
+                                            if (submitText) submitText.textContent = "✓ Inquiry Sent!";
+                                        }
+
+                                        // Reset & Repeat Loop after 2.5s
+                                        setTimeout(() => {
+                                            if (submitBtn) {
+                                                submitBtn.classList.remove('scale-105', 'bg-[#2ED8C3]');
+                                                if (submitText) submitText.textContent = "Submit Inquiry";
+                                            }
+                                            runFormAnimationSequence();
+                                        }, 2500);
+                                    });
+                                }, 350);
+                            });
+                        }, 350);
+                    });
+                }, 400);
+            }
+
+            runFormAnimationSequence();
+        });
+    </script>
 </body>
 
 
