@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="dark scroll-smooth" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -161,6 +161,96 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Klicks To Clients",
+      "url": "https://www.klickstoclients.com",
+      "telephone": "+1-813-444-8804",
+      "priceRange": "$$",
+      "description": "Integrated client acquisition engines, high-converting web design, Google Maps proximity expansion, and paid lead generation for trade contractors.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Contractor Growth Pillars & Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Pillar 01: Marketing Agency — Integrated Growth & Lead Systems",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "name": "Customer Reputation Management & Automated Reviews",
+                "description": "Automated post-job review collection and 5-star Google review velocity engine for trade contractors.",
+                "url": "https://www.klickstoclients.com/our-system.html#reviews"
+              },
+              {
+                "@type": "Service",
+                "name": "Search Engine Optimization (SEO) & Lead Generation",
+                "description": "Contractor-focused organic search optimization and inbound lead generation architecture."
+              },
+              {
+                "@type": "Service",
+                "name": "24/7 Website Chat & Instant Lead Capture",
+                "description": "Friction-free quote capture and automated lead routing for mobile homeowners."
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Pillar 02: Website Designer — High-Converting Web Platforms",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "name": "High-Converting Contractor Website Design",
+                "description": "Custom, mobile-first responsive web design with direct-response architecture built to convert clicks into booked estimates.",
+                "url": "https://www.klickstoclients.com/our-system.html#websites"
+              },
+              {
+                "@type": "Service",
+                "name": "Direct-Response Landing Page Design",
+                "description": "Dedicated service landing pages engineered for high conversion rates and sub-second load speeds."
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Pillar 03: Advertising Agency — Paid Ads, LSA & Lead Recapture",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "name": "Google Local Services Ads (LSA) & Google Ads Management",
+                "description": "Hands-on pay-per-lead management with aggressive junk-lead dispute audits and negative keyword protection.",
+                "url": "https://www.klickstoclients.com/our-system.html#traffic-recapture"
+              },
+              {
+                "@type": "Service",
+                "name": "No Lead Left Behind Social Retargeting",
+                "description": "Direct-response Meta (Facebook & Instagram) video retargeting campaigns to recapture lost website traffic."
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Pillar 04: Internet Marketing Service — Google 3-Pack & Proximity Expansion",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "name": "Google Map Pack & Proximity Expansion",
+                "description": "Local 3-Pack optimization and county-wide radius expansion to turn out-of-ranked grids into top ranking positions.",
+                "url": "https://www.klickstoclients.com/our-system.html#map-pack"
+              },
+              {
+                "@type": "Service",
+                "name": "Local Citation & Google Business Profile Management",
+                "description": "Comprehensive GBP audit, citation synchronization, and local authority building."
+              }
+            ]
+          }
+        ]
+      }
+    }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
         rel="stylesheet">
@@ -284,38 +374,47 @@
         /* Scroll Animations */
         .obs-animate {
             opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), gap 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), gap 2.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         .obs-animate.obs-visible {
             opacity: 1;
         }
 
-        /* 5-Item Squeeze Animation (starts wide/scaled, transitions to normal) */
+        /* 5-Item Squeeze Animation (starts wide, slowly centers & squeezes as user scrolls) */
         .obs-squeeze {
-            gap: 2rem; 
-            transform: scale(1.05); 
+            gap: 3.5rem; 
+            transform: scale(1.04); 
+            transition: gap 2.4s cubic-bezier(0.16, 1, 0.3, 1), transform 2.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 2.4s ease-out;
         }
         @media (min-width: 768px) {
             .obs-squeeze {
-                gap: 5rem;
+                gap: 5.5rem;
             }
         }
         .obs-squeeze.obs-visible {
-            gap: 2rem !important; /* Tailwind gap-8 */
+            gap: 1.25rem !important;
             transform: scale(1) !important;
         }
         @media (min-width: 768px) {
             .obs-squeeze.obs-visible {
-                gap: 4rem !important; /* Tailwind md:gap-16 */
+                gap: 1.5rem !important;
+            }
+        }
+        @media (min-width: 1024px) {
+            .obs-squeeze.obs-visible {
+                gap: 1.75rem !important;
             }
         }
 
-        /* Fade-Up Animation */
+        /* Fade-Up Animation for sections */
         .obs-fade-up {
-            transform: translateY(30px);
+            opacity: 0;
+            transform: translateY(45px);
+            transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .obs-fade-up.obs-visible {
+            opacity: 1;
             transform: translateY(0);
         }
 
@@ -422,7 +521,7 @@
                                 class="material-symbols-outlined text-[#08131F] group-hover:translate-x-1 transition-transform hidden sm:inline"
                                >arrow_forward</span>
                         </a>
-                        <a href="#how-it-works"
+                        <a href="#services" id="see-how-btn"
                             class="px-8 py-4 rounded-xl font-display font-bold text-lg border border-[#2ED8C3]/30 text-white hover:bg-[#2ED8C3]/10 hover:border-[#2ED8C3]/60 transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
                            >
                             See How It Works
@@ -460,22 +559,22 @@
         <section class="border-y border-slate-800 bg-[#0B1A2A]/80 py-8 overflow-hidden backdrop-blur-sm relative z-20">
             <div class="max-w-7xl mx-auto px-6">
                 <div
-                    class="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-sm font-display font-medium text-slate-300 obs-animate obs-squeeze">
-                    <div class="flex items-center gap-3"><span
+                    class="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-7 items-center text-sm font-display font-medium text-slate-300 obs-animate obs-squeeze">
+                    <div class="flex items-center gap-2.5 whitespace-nowrap"><span
                             class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span>
                         Websites That Convert</div>
-                    <div class="flex items-center gap-3"><span
+                    <div class="flex items-center gap-2.5 whitespace-nowrap"><span
                             class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span> Local
                         SEO Mastery</div>
-                    <div class="flex items-center gap-3"><span
+                    <div class="flex items-center gap-2.5 whitespace-nowrap"><span
                             class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span>
                         Reputation Management</div>
-                    <div class="flex items-center gap-3"><span
+                    <div class="flex items-center gap-2.5 whitespace-nowrap"><span
                             class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span> Google
                         Business Optimization</div>
-                    <div class="flex items-center gap-3"><span
-                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span> AI
-                        Automation</div>
+                    <div class="flex items-center gap-2.5 whitespace-nowrap"><span
+                            class="material-symbols-outlined text-[#2ED8C3] text-xl">check_circle</span>
+                        Retargeting & Remarketing</div>
                 </div>
             </div>
         </section>
@@ -624,6 +723,124 @@
                 </div>
             </div>
         </section>
+
+        <!-- The 4 Growth Pillars Section (2x2 Grid) -->
+        <section class="py-16 md:py-24 bg-[#08131F] relative overflow-hidden border-t border-white/10 obs-animate obs-fade-up" id="growth-pillars">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(46,216,195,0.04)_0%,transparent_50%)] pointer-events-none"></div>
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center max-w-4xl mx-auto mb-12 md:mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2ED8C3]/10 border border-[#2ED8C3]/20 text-[#2ED8C3] text-sm font-semibold tracking-wide mb-4">
+                        <span class="material-symbols-outlined text-sm">hub</span>
+                        SYSTEM ARCHITECTURE
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-white leading-tight mb-6">
+                        The 4 Growth Pillars That Power Your Core Platform
+                    </h2>
+                    <p class="text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
+                        A high-converting website is only the foundation. We surround your platform with four interconnected pillars engineered to drive exclusive calls, build instant market trust, and capture high-ticket contracts.
+                    </p>
+                </div>
+
+                <!-- 2x2 Grid Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- CARD 1 -->
+                    <a href="our-system.html#reviews" class="block group p-8 rounded-3xl bg-[#0B1A2A] border border-white/10 transition-all duration-300 hover:border-[#2ED8C3]/50 hover:shadow-[0_0_30px_rgba(46,216,195,0.12)] relative overflow-hidden flex flex-col justify-between cursor-pointer">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#2ED8C3]/5 rounded-full blur-2xl group-hover:bg-[#2ED8C3]/15 transition-all"></div>
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full bg-[#2ED8C3]/10 border border-[#2ED8C3]/30 text-[#2ED8C3] text-xs font-bold uppercase tracking-wider">
+                                    PILLAR 01 — MARKETING AGENCY
+                                </span>
+                                <span class="material-symbols-outlined text-[#2ED8C3]">star_rate</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-4 group-hover:text-[#2ED8C3] transition-colors">
+                                Integrated Growth & Lead Systems
+                            </h3>
+                            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                Trade contractors lose high-ticket jobs when marketing is split across disconnected vendors. We combine Search Engine Optimization (SEO), automated Customer Reputation Management, 24/7 Website Chat, and targeted Lead Generation into a single client acquisition engine engineered to generate predictable booked estimates.
+                            </p>
+                        </div>
+                        <div class="pillar-link inline-flex items-center gap-2 text-sm font-bold text-[#C9F84A] group-hover:text-white transition-colors mt-6">
+                            Explore Reputation & Lead Engine
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </a>
+
+                    <!-- CARD 2 -->
+                    <a href="our-system.html#website-transformation" class="block group p-8 rounded-3xl bg-[#0B1A2A] border border-white/10 transition-all duration-300 hover:border-[#C9F84A]/50 hover:shadow-[0_0_30px_rgba(201,248,74,0.12)] relative overflow-hidden flex flex-col justify-between cursor-pointer">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#C9F84A]/5 rounded-full blur-2xl group-hover:bg-[#C9F84A]/15 transition-all"></div>
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full bg-[#C9F84A]/10 border border-[#C9F84A]/30 text-[#C9F84A] text-xs font-bold uppercase tracking-wider">
+                                    PILLAR 02 — WEBSITE DESIGNER
+                                </span>
+                                <span class="material-symbols-outlined text-[#C9F84A]">phonelink</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-4 group-hover:text-[#C9F84A] transition-colors">
+                                High-Converting Web Platforms
+                            </h3>
+                            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                A contractor website shouldn't act like a static brochure. We build custom Responsive Web Design and dedicated Landing Page Design with direct-response messaging, fast mobile speeds, and friction-free quote funnels built to turn local homeowner traffic into exclusive phone calls.
+                            </p>
+                        </div>
+                        <div class="pillar-link inline-flex items-center gap-2 text-sm font-bold text-[#C9F84A] group-hover:text-white transition-colors mt-6">
+                            Explore Conversion-First Web Design
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </a>
+
+                    <!-- CARD 3 -->
+                    <a href="our-system.html#traffic-recapture" class="block group p-8 rounded-3xl bg-[#0B1A2A] border border-white/10 transition-all duration-300 hover:border-[#2ED8C3]/50 hover:shadow-[0_0_30px_rgba(46,216,195,0.12)] relative overflow-hidden flex flex-col justify-between cursor-pointer">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#2ED8C3]/5 rounded-full blur-2xl group-hover:bg-[#2ED8C3]/15 transition-all"></div>
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full bg-[#2ED8C3]/10 border border-[#2ED8C3]/30 text-[#2ED8C3] text-xs font-bold uppercase tracking-wider">
+                                    PILLAR 03 — ADVERTISING AGENCY
+                                </span>
+                                <span class="material-symbols-outlined text-[#2ED8C3]">campaign</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-4 group-hover:text-[#2ED8C3] transition-colors">
+                                Paid Ads, LSA & Lead Recapture
+                            </h3>
+                            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                Stop burning monthly ad spend on unqualified clicks or lost website traffic. We deliver hands-on Local Services Ads (LSA) Management with aggressive junk-lead dispute audits, high-intent Direct Response Ad Creative, and Retargeting & Remarketing Campaigns via our "No Lead Left Behind" system to keep your brand in front of warm prospects until they book.
+                            </p>
+                        </div>
+                        <div class="pillar-link inline-flex items-center gap-2 text-sm font-bold text-[#C9F84A] group-hover:text-white transition-colors mt-6">
+                            Explore Paid Ads & Retargeting
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </a>
+
+                    <!-- CARD 4 -->
+                    <a href="our-system.html#map-pack-dominance" class="block group p-8 rounded-3xl bg-[#0B1A2A] border border-white/10 transition-all duration-300 hover:border-[#C9F84A]/50 hover:shadow-[0_0_30px_rgba(201,248,74,0.12)] relative overflow-hidden flex flex-col justify-between cursor-pointer">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#C9F84A]/5 rounded-full blur-2xl group-hover:bg-[#C9F84A]/15 transition-all"></div>
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-full bg-[#C9F84A]/10 border border-[#C9F84A]/30 text-[#C9F84A] text-xs font-bold uppercase tracking-wider">
+                                    PILLAR 04 — INTERNET MARKETING SERVICE
+                                </span>
+                                <span class="material-symbols-outlined text-[#C9F84A]">distance</span>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-4 group-hover:text-[#C9F84A] transition-colors">
+                                Google 3-Pack & Proximity Expansion
+                            </h3>
+                            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                                Over 70% of high-intent homeowner calls go directly to the top 3 Google Map listings. We handle complete Google Business Profile Optimization, county-wide Local Citation & Listing Management, and Conversion Rate Optimization (CRO) to expand your service radius and push your business into dominant Map Pack positions.
+                            </p>
+                        </div>
+                        <div class="pillar-link inline-flex items-center gap-2 text-sm font-bold text-[#C9F84A] group-hover:text-white transition-colors mt-6">
+                            Explore Map Pack Dominance
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Why the Right System Changes Everything Section -->
         <section class="py-32 bg-[#0D1E2D] relative overflow-hidden border-t border-white/5 obs-animate obs-fade-up" style="transition-duration: 1.6s; transition-delay: 0.15s;">
             <div
@@ -1276,6 +1493,44 @@
             }
 
             runFormAnimationSequence();
+
+            // Immediate, responsive smooth scroll for "See How It Works" button down to Core System 01
+            const seeHowBtn = document.getElementById('see-how-btn');
+            if (seeHowBtn) {
+                seeHowBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetEl = document.getElementById('services');
+                    if (!targetEl) return;
+
+                    const headerOffset = 100; // Sticky header offset so "Core System 01" top is clearly visible
+                    const startPos = window.pageYOffset;
+                    const targetPos = targetEl.getBoundingClientRect().top + startPos - headerOffset;
+                    const distance = targetPos - startPos;
+                    const duration = 650; // Expedient 650ms duration for instant responsiveness
+
+                    // Ease-out cubic: Starts moving IMMEDIATELY on click (zero lag), decelerates smoothly into target
+                    function easeOutCubic(t, b, c, d) {
+                        t /= d;
+                        t--;
+                        return c * (t * t * t + 1) + b;
+                    }
+
+                    let startTime = null;
+                    function animateScroll(currentTime) {
+                        if (startTime === null) startTime = currentTime;
+                        const elapsed = currentTime - startTime;
+                        const nextPos = easeOutCubic(elapsed, startPos, distance, duration);
+                        window.scrollTo(0, nextPos);
+                        if (elapsed < duration) {
+                            requestAnimationFrame(animateScroll);
+                        } else {
+                            window.scrollTo(0, targetPos);
+                        }
+                    }
+
+                    requestAnimationFrame(animateScroll);
+                });
+            }
         });
     </script>
 </body>
