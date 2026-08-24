@@ -5,5 +5,16 @@
     { "source": "/plans-packs", "destination": "/", "statusCode": 301 },
     { "source": "/www.klickstoclients.com", "destination": "/", "statusCode": 301 },
     { "source": "/terms", "destination": "/terms-and-conditions.html", "statusCode": 301 }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    }
   ]
 }
